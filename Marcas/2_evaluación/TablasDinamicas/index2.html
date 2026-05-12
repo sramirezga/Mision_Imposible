@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tablas Dinamicas</title>
+  </head>
+
+  <style>
+    div {
+      margin: 2rem;
+          
+    }
+
+    input {
+      width: 2.5rem;
+    }
+
+    h5,p, input, button{
+        font-size: 1.5rem;
+        
+    }
+  </style>
+  <body>
+    <div id="caja">
+      <h1>Tablas dinámicas</h1>
+
+      <h5>Selecciona el número de filas y columnas que tendrá la tabla (entre 1-3) </h5>
+
+      <p>Filas(1-3): <input type="text" value="0" id="row" /></p>
+      <p>Columnas(1-3): <input type="text" value="0" id="col" /></p>
+
+      <button onclick="crearTabla()">Crear!</button>
+    </div>
+    
+
+    <div id="nuevaTabla"></div>
+
+   
+
+
+    <!-- Mis scripts -->
+     <script src="js/scripts.js"></script>
+  </body>
+</html>
