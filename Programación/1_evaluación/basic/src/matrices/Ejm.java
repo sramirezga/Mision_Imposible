@@ -16,7 +16,7 @@ public class Ejm {
     public static void imprimir(int[][] m) {
         for (int i = 0; i < m.length; i++) {
             for (int j = 0; j < m[0].length; j++) {
-                System.out.println(m[i][j]);
+                System.out.print(m[i][j]);
             }
             System.out.println();
         }
@@ -30,24 +30,40 @@ public class Ejm {
 
         //Imprimir
         imprimir(matriz);
+        System.out.println();
 
-
-        int aux = 0;
 
         //Cambiar de valor
-        for(int i = 0; i < matriz.length; i++){
+        for (int fila = 0; fila < matriz.length; fila++) {
 
-            int aux2 = matriz[i][0];
-            matriz[i][0] = matriz[i][3];
-            matriz[i][3] = aux2;
+            //Ezquinas
+            int aux = matriz[fila][0];
+            matriz[fila][0] = matriz[fila][3];
+            matriz[fila][3] = aux;
 
+            //Medio
+            aux = matriz[fila][1];
+            matriz[fila][1] = matriz[fila][2];
+            matriz[fila][2] = aux;
 
-            for (int j = 0; j < matriz[0].length; j++){
-
-
-
-            }
         }
+
+        for (int col = 0; col < matriz[0].length; col++){
+
+            //Arriba abajo
+            int aux = matriz[0][col];
+            matriz[0][col] = matriz[3][col];
+            matriz[3][col] = aux;
+
+
+            //CAMBIO CENTRO
+            aux = matriz[1][col];
+            matriz[1][col] = matriz[2][col];
+            matriz[2][col] = aux;
+
+        }
+
+        imprimir(matriz);
 
 
     }
