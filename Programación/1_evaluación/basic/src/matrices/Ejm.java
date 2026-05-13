@@ -22,19 +22,73 @@ public class Ejm {
         }
     }
 
+    public static void invertirColumnas(int[][] m, int posCol) {
+
+        //Filas
+        for (int fila = 0; fila < m.length; fila++) {
+            int aux = m[fila][posCol];
+            m[fila][posCol] = m[fila][m[0].length - 1 - posCol];
+            m[fila][m[posCol].length - 1 - posCol] = aux;
+        }
+    }
+
+    public static void invertirFilas(int[][] m, int posFila) {
+        //Columnas
+        for (int col = 0; col < m[0].length; col++) {
+            int aux = m[posFila][col];
+            m[posFila][col] = m[m.length - 1 - posFila][col];
+            m[m[posFila].length - 1 - posFila][col] =aux;
+        }
+    }
+
+
+    public static void pintarMatrizDer(int fila){
+
+        for(int i = 0; i < fila; i ++ ){
+
+            for(int j = 0; j < fila -i ; j++){
+                System.out.print(" ");
+            }
+
+            for(int k = 0; k < i; k++){
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+
+
+    }
+
+    public static void pintarMatrizIzq(int fila){
+
+        for(int i = 0; i < fila; i ++ ){
+
+            for(int j = 0; j < fila +i ; j++){
+                System.out.print(" ");
+            }
+
+            for(int k = 0; k < i; k++){
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+
+
+    }
+
 
     public static void main(String[] args) {
 
         //Rellnar
-        int[][] matriz = rellenar(4, 4);
+      //  int[][] matriz = rellenar(4, 4);
 
         //Imprimir
-        imprimir(matriz);
-        System.out.println();
+       /* imprimir(matriz);
+        System.out.println(); /*
 
 
         //Cambiar de valor
-        for (int fila = 0; fila < matriz.length; fila++) {
+      /*  for (int fila = 0; fila < matriz.length; fila++) {
 
             //Ezquinas
             int aux = matriz[fila][0];
@@ -48,7 +102,7 @@ public class Ejm {
 
         }
 
-        for (int col = 0; col < matriz[0].length; col++){
+        for (int col = 0; col < matriz[0].length; col++) {
 
             //Arriba abajo
             int aux = matriz[0][col];
@@ -61,10 +115,15 @@ public class Ejm {
             matriz[1][col] = matriz[2][col];
             matriz[2][col] = aux;
 
-        }
+        } */
 
-        imprimir(matriz);
+        /*invertirColumnas(matriz, 0);
+        invertirFilas(matriz, 1);
+        imprimir(matriz); */
 
+
+        pintarMatrizDer(5);
+        pintarMatrizIzq(5);
 
     }
 }
