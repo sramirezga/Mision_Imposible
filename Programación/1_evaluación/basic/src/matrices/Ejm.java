@@ -42,15 +42,15 @@ public class Ejm {
     }
 
 
-    public static void pintarMatrizDer(int fila){
+    public static void pintarMatrizDer(int n){
 
-        for(int i = 0; i < fila; i ++ ){
+        for(int i = 0; i < n; i ++ ){
 
-            for(int j = 0; j < fila -i ; j++){
+            for(int j = 0; j < n -i ; j++){
                 System.out.print(" ");
             }
 
-            for(int k = 0; k < i; k++){
+            for(int j = 0; j < i; j++){
                 System.out.print("*");
             }
             System.out.println();
@@ -59,11 +59,13 @@ public class Ejm {
 
     }
 
-    public static void pintarMatrizIzq(int fila){
+    public static void pintarMatrizIzq(){
 
-        for(int i = 0; i < fila; i ++ ){
+        int n = 5;
 
-            for(int j = 0; j < fila +i ; j++){
+        for(int i = 0; i < n; i ++ ){
+
+            for(int j = n; j > i  ; j--){
                 System.out.print(" ");
             }
 
@@ -123,7 +125,7 @@ public class Ejm {
 
 
         pintarMatrizDer(5);
-        pintarMatrizIzq(5);
+        pintarMatrizIzq();
 
     }
 }
