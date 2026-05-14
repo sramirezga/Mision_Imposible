@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+  <fabricantes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="fabricantes.xsd">
+    <fabricante id="Peugeot" logo="peugeot.jpg">
+      <fundador  desde="1882">Armand Peugeot</fundador>
+      <pais>Francia</pais>
+      <modelos>
+        <modelo>
+          <nombre>Peugeot 308</nombre>
+          <segmento>C</segmento>
+          <inicio>2007</inicio>
+        </modelo>
+        <modelo>
+          <nombre>Peugeot 5008</nombre>
+          <segmento>C/D</segmento>
+          <inicio>2009</inicio>
+        </modelo>
+      </modelos>
+    </fabricante>
+    
+    <fabricante id="Renault" logo="renault.jpg">
+      <fundador desde="1899">Louis Renault</fundador>
+      <pais>Francia</pais>
+      <modelos>
+        <modelo>
+          <nombre>Renault Espace</nombre>
+          <segmento>D</segmento>
+          <inicio>1984</inicio>
+        </modelo>
+        <modelo>
+          <nombre>Renault Clio</nombre>
+          <segmento>B</segmento>
+          <inicio>1990</inicio>
+        </modelo>
+        <modelo>
+          <nombre>Renault Captur</nombre>
+          <segmento>B</segmento>
+          <inicio>2013</inicio>
+        </modelo>
+      </modelos>
+    </fabricante>
+    
+    <fabricante id="Opel" logo="opel.jpg">
+      <fundador desde="1862">Adam Opel</fundador>
+      <pais>Alemania</pais>
+      <modelos>
+        <modelo>
+          <nombre>Opel Astra</nombre>
+          <segmento>C</segmento>
+          <inicio>1991</inicio>
+        </modelo>
+      </modelos>
+    </fabricante>
+    
+    <fabricante id="Volkswagen" logo="volkswagen.jpg">
+      <fundador desde="1937">Deutsche Arbeitsfront</fundador>
+      <pais>Alemania</pais>
+      <modelos>
+        <modelo>
+          <nombre>Volkswagen Passat</nombre>
+          <segmento>D</segmento>
+          <inicio>1973</inicio>
+        </modelo>
+        <modelo>
+          <nombre>Volkswagen Golf</nombre>
+          <segmento>C</segmento>
+          <inicio>1974</inicio>
+        </modelo>
+        <modelo>
+          <nombre>Volkswagen Touran</nombre>
+          <segmento>C</segmento>
+          <inicio>2003</inicio>
+        </modelo>
+      </modelos>
+    </fabricante>
+    
+  </fabricantes>
+
+  

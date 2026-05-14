@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="fabricantes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="fabricante" minOccurs="4" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="fabricante">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="fundador"/>
+        <xs:element name="pais" type="xs:string"/>
+        <xs:element ref="modelos"/>
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:string" use="required"/>
+      <xs:attribute name="logo" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="fundador">
+    <xs:complexType mixed="true">
+      <xs:attribute name="desde" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="modelos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="modelo" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="modelo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="nombre" type="xs:string"/>
+        <xs:element name="segmento" type="xs:string"/>
+        <xs:element name="inicio" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

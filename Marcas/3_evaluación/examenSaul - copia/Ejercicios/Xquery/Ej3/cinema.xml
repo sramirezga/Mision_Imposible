@@ -1,0 +1,42 @@
+<cinema>
+    <pelicula categoria="accion">
+        <titulo idioma="ingles">Mad Max</titulo>
+        <director>George Miller</director>
+        <estreno>15 mayo 2015</estreno>
+        <reparto>
+          <actor>Tom Hardy</actor>
+          <actor>Charlize Theron</actor>
+          <actor>Nicholas Hoult</actor>
+        </reparto>
+    </pelicula>
+    <pelicula categoria="animacion">
+        <titulo idioma="ingles">Inside Out</titulo>
+        <director>Pete Docter</director>
+        <estreno>17 junio 2015</estreno>
+         <reparto>
+          <actor>Amy Poehler</actor>
+          <actor>Phyllis Smith</actor>
+          <actor>Bill Hader</actor>
+        </reparto>
+    </pelicula>
+     <pelicula categoria="suspense">
+        <titulo idioma="italiano">Psicosis</titulo>
+        <director>Alfred Hitchcock</director>
+        <estreno>1 junio 1960</estreno>
+         <reparto>
+          <actor>Anthony Perkins</actor>
+          <actor>Janet Leigh</actor>
+          <actor>Vera Miles</actor>
+        </reparto>
+    </pelicula>
+    <pelicula categoria="accion">
+        <titulo idioma="ingles">Arma letal</titulo>
+        <director>Richard Donner</director>
+        <estreno>5 febrero 1987</estreno>
+         <reparto>
+          <actor>Mel Gibson</actor>
+          <actor>Danny Glover</actor>
+          <actor>Gary Busey</actor>
+        </reparto>
+    </pelicula>
+</cinema>

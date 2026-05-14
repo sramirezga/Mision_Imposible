@@ -4,35 +4,42 @@ import java.util.Scanner;
 
 public class Menu {
 
-    public static int[] rellenarArray(int[] array) {
+    public static void rellenarArray(int[] array) {
         for (int i = 0; i < array.length; i++) {
             array[i] = (int) (Math.random() * 11);
         }
-        return array;
+
     }
 
     public static void mostrarArray(int[] array) {
         for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i] + ", ");
+            System.out.print(array[i] + " ");
         }
-        System.out.println();
         System.out.println();
     }
 
-    public static int[] anadirElementos(int[] array, int numPos, int n) {
+    public static int[] anadirElementos(int[] array, int numPos, int valor) {
 
         int[] aux = new int[array.length + 1];
 
-        for (int i = 0; i < numPos; i++){
-            aux [i] = array[i];
+        for (int i = 0; i < numPos; i++) {
+            aux[i] = array[i];
         }
 
-        aux[numPos] = n;
+        /*mostrarArray(array);
+        mostrarArray(aux); */
 
-        for (int i = numPos+1; aux.length; i++ ){
-            
+        aux[numPos] = valor;
+        /*mostrarArray(array);
+        mostrarArray(aux); */
+
+
+        for (int i = numPos + 1; i < aux.length; i++) {
+            aux[i] = array[i - 1];
         }
 
+        /*mostrarArray(array);
+        mostrarArray(aux);*/
 
 
         return aux;
@@ -44,23 +51,49 @@ public class Menu {
 
         int[] aux = new int[array.length - 1];
 
-        if (posEliminable < 0 || posEliminable > array.length) {
-            System.out.println("Posición del array no valido");
-            System.out.println();
-        } else {
+
+        for (int i = 0; i < posEliminable; i++ ){
+            aux[i] = array[i];
+        }
+
+        mostrarArray(array);
+        mostrarArray(aux);
 
 
-            int j = 0;
+        for (int i = posEliminable;  i < aux.length; i++ ){
+            aux[i] = array[i + 1];
+        }
+
+        mostrarArray(array);
+        mostrarArray(aux);
+
+        return aux;
+    }
+
+    public static int[] arrayAleatorio(int tamano){
+
+       int[] aux = new int[tamano];
+
+       rellenarArray(aux);
+       mostrarArray(aux);
+
+        return aux;
+    }
+
+    public static int[] mesclar(int[] array1, int[] array2){
+        int[] aux = new int[array1.length + array2.length];
 
 
-            for (int i = 0; i < array.length; i++) {
+        int sumaPos = 0;
 
-                if(i != posEliminable){
-                    aux[j] = array[i];
-                    j++;
-                }
+        for (int i = 0; i < array1.length; i++){
 
-            }
+            aux[sumaPos] = array1[i];
+            sumaPos ++;
+
+            aux[sumaPos] = array2[i];
+            sumaPos ++;
+
         }
 
 
@@ -72,13 +105,19 @@ public class Menu {
 
 
         int[] array = new int[10];
-        array = rellenarArray(array);
+        rellenarArray(array);
         mostrarArray(array);
+        System.out.println();
+
+        int[] array2 = new int[10];
+        rellenarArray(array2);
+        mostrarArray(array2);
+        System.out.println();
 
         System.out.println("   Elige una opción: ");
         System.out.println("1. Añadir elementos en alguna posición del array (0 -9)");
-        System.out.println("2. Crear array aleatorio ingresa un tamaño");
-        System.out.println("3. Borrar elementos en posición ");
+        System.out.println("2. Borrar elementos en posición ");
+        System.out.println("3. Crear array aleatorio ingresa un tamaño");
         System.out.println("4. salir");
 
         int opcion = sc.nextInt();
@@ -90,11 +129,11 @@ public class Menu {
                     int numPos = sc.nextInt();
 
                     System.out.println("Introduce el valor por el que lo quieras cambiar");
-                    int n = sc.nextInt();
+                    int valor = sc.nextInt();
 
                     if (numPos > -1 && numPos < 10) {
-                        anadirElementos(array, numPos, n);
-                        mostrarArray(array);
+                        array = anadirElementos(array, numPos, valor);
+
                     }
 
                     break;
@@ -104,17 +143,16 @@ public class Menu {
                     System.out.println("Introduce la posicion para borrar elementos");
                     int borrarPos = sc.nextInt();
 
-                    borrarElmentos(array, borrarPos);
-                    mostrarArray(array);
+                    array = borrarElmentos(array, borrarPos);
+
 
                     break;
 
                 case 3:
+                    System.out.println("Introduce un tamaño para el crear un array");
+                    int tamano = sc.nextInt();
 
-                    break;
-
-                case 4:
-
+                    arrayAleatorio(tamano);
                     break;
 
                 default:
@@ -124,8 +162,8 @@ public class Menu {
 
             System.out.println("   Elige una opción: ");
             System.out.println("1. Añadir elementos en alguna posición del array (0 -9)");
-            System.out.println("2. Crear array aleatorio ingresa un tamaño");
-            System.out.println("3. Borrar elementos en posición ");
+            System.out.println("2. Borrar elementos en posición ");
+            System.out.println("3. Crear array aleatorio ingresa un tamaño");
             System.out.println("4. salir");
 
             opcion = sc.nextInt();
