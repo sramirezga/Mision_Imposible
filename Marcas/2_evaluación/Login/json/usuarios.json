@@ -1,0 +1,17 @@
+[
+   {
+      "id":"01",
+      "usuario": "admin",
+      "password": "admin"
+   },
+   {
+      "id":"02",
+      "usuario": "user",
+      "password": "user"
+   },
+   {
+      "id":"03",
+      "usuario": "popeye",
+      "password": "popeye"
+   }
+]

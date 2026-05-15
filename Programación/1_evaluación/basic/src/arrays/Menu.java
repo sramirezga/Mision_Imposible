@@ -52,7 +52,7 @@ public class Menu {
         int[] aux = new int[array.length - 1];
 
 
-        for (int i = 0; i < posEliminable; i++ ){
+        for (int i = 0; i < posEliminable; i++) {
             aux[i] = array[i];
         }
 
@@ -60,7 +60,7 @@ public class Menu {
         mostrarArray(aux);
 
 
-        for (int i = posEliminable;  i < aux.length; i++ ){
+        for (int i = posEliminable; i < aux.length; i++) {
             aux[i] = array[i + 1];
         }
 
@@ -70,30 +70,34 @@ public class Menu {
         return aux;
     }
 
-    public static int[] arrayAleatorio(int tamano){
+    public static int[] arrayAleatorio(int tamano) {
 
-       int[] aux = new int[tamano];
+        int[] aux = new int[tamano];
 
-       rellenarArray(aux);
-       mostrarArray(aux);
+        rellenarArray(aux);
 
         return aux;
     }
 
-    public static int[] mesclar(int[] array1, int[] array2){
+    public static int[] mesclar(int[] array1, int[] array2) {
         int[] aux = new int[array1.length + array2.length];
 
 
-        int sumaPos = 0;
 
-        for (int i = 0; i < array1.length; i++){
+        int sumaPos = 0;
+          // EJEM VALE 5
+        for (int i = 0; i < array1.length - array2.length; i++) {
 
             aux[sumaPos] = array1[i];
-            sumaPos ++;
+            sumaPos++;
 
             aux[sumaPos] = array2[i];
-            sumaPos ++;
+            sumaPos++;
 
+        }
+
+        for (int i = sumaPos; i < aux.length; i++) {
+            aux[i] = array2[i];
         }
 
 
@@ -151,10 +155,18 @@ public class Menu {
                 case 3:
                     System.out.println("Introduce un tamaño para el crear un array");
                     int tamano = sc.nextInt();
+                    System.out.println("Array original");
+                    mostrarArray(array);
 
-                    arrayAleatorio(tamano);
+                    System.out.println("Array mofificado");
+                    int[] arrayUsuario = arrayAleatorio(tamano);
+                    mostrarArray(arrayUsuario);
+
+                    array = mesclar(array, arrayUsuario);
+
+                    System.out.println("Modificado");
+                    mostrarArray(array);
                     break;
-
                 default:
                     System.out.println("No se ha elegido ninguna opción válida");
             }
