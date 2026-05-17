@@ -1,0 +1,92 @@
+[
+    {
+      "id": 1,
+      "nombre": "Manzana Gala",
+      "precio": 1.50,
+      "unidad": "kg",
+      "stock": 100,
+      "categoria": "Frutas",
+      "origen": "España"
+    },
+    {
+      "id": 2,
+      "nombre": "Plátano de Canarias",
+      "precio": 1.80,
+      "unidad": "kg",
+      "stock": 80,
+      "categoria": "Frutas",
+      "origen": "España"
+    },
+    {
+      "id": 3,
+      "nombre": "Naranja Valencia",
+      "precio": 1.20,
+      "unidad": "kg",
+      "stock": 150,
+      "categoria": "Frutas",
+      "origen": "España"
+    },
+    {
+      "id": 4,
+      "nombre": "Pera Conferencia",
+      "precio": 1.70,
+      "unidad": "kg",
+      "stock": 75,
+      "categoria": "Frutas",
+      "origen": "España"
+    },
+    {
+      "id": 5,
+      "nombre": "Kiwi",
+      "precio": 2.50,
+      "unidad": "kg",
+      "stock": 60,
+      "categoria": "Frutas",
+      "origen": "Nueva Zelanda"
+    },
+    {
+      "id": 6,
+      "nombre": "Fresa",
+      "precio": 3.00,
+      "unidad": "bandeja",
+      "stock": 40,
+      "categoria": "Frutas",
+      "origen": "España"
+    },
+    {
+      "id": 7,
+      "nombre": "Aguacate",
+      "precio": 3.50,
+      "unidad": "kg",
+      "stock": 50,
+      "categoria": "Frutas",
+      "origen": "México"
+    },
+    {
+      "id": 8,
+      "nombre": "Limón",
+      "precio": 1.30,
+      "unidad": "kg",
+      "stock": 90,
+      "categoria": "Frutas",
+      "origen": "España"
+    },
+    {
+      "id": 9,
+      "nombre": "Piña",
+      "precio": 2.80,
+      "unidad": "unidad",
+      "stock": 30,
+      "categoria": "Frutas",
+      "origen": "Costa Rica"
+    },
+    {
+      "id": 10,
+      "nombre": "Uva sin semilla",
+      "precio": 2.20,
+      "unidad": "kg",
+      "stock": 70,
+      "categoria": "Frutas",
+      "origen": "Chile"
+    }
+]

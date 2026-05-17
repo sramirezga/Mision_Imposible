@@ -1,0 +1,5 @@
+
+En JavaScript para mostrar una página web utiliza:
+
+
+	window.location.href = "nombre_pagina.html";

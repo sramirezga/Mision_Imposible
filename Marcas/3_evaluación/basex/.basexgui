@@ -1,0 +1,119 @@
+# Version
+UPDATEVERSION = 12.3
+CHECKUPDATES = false
+
+# Paths
+INPUTPATH = C:/Users/ssaul/Downloads/examenSaul/examenSaul/Ejercicios/Xquery/Ej1/cinema.xml
+DATAPATH = C:\TercerTrimestre\Lenguaje Marcas\Tercer\basex\
+WORKPATH = C:/Users/ssaul/Downloads/examenSaul/examenSaul/Ejercicios/Xquery/Ej2/
+PROJECTPATH = C:/TercerTrimestre/Lenguaje Marcas/Tercer/basex/
+
+# Layout
+FONT = SansSerif
+MONOFONT = Consolas
+FONTSIZE = 17
+LISTMONO = true
+ANTIALIAS = System
+COLORRED = 21
+COLORGREEN = 14
+COLORBLUE = 7
+
+# Windows
+VIEWS = H V editor text - V H folder map plot - H info table tree explore - - - 
+GUISIZE0 = 781
+GUISIZE1 = 822
+GUILOC0 = -6
+GUILOC1 = 0
+MAXSTATE = true
+SHOWBUTTONS = true
+SHOWINPUT = true
+SHOWSTATUS = true
+SHOWINFO = true
+SHOWMAP = true
+SHOWTABLE = false
+SHOWTEXT = true
+SHOWFOLDER = false
+SHOWEXPLORE = false
+SHOWPLOT = false
+SHOWEDITOR = true
+SHOWTREE = false
+SHOWPROJECT = false
+INDENTRESULT = false
+PREFTAB = 0
+LOOKANDFEEL = 
+LABELS = name,label,id
+SCROLLTABS = true
+MOUSEFOCUS = false
+XMLSUFFIXES = xml,xsd,svg,rdf,rss,rng,sch,xhtml
+ASCSORT = true
+CASESORT = true
+MERGEDUPL = false
+COLUMN = 1
+UNICODE = true
+SHOWMARGIN = true
+MARGIN = 80
+TABSPACES = true
+INDENT = 2
+SHOWINVISIBLE = true
+SHOWNL = false
+SHOWLINES = true
+MARKLINE = true
+SAVERUN = false
+PARSEPROJ = true
+AUTO = true
+FILES = *.xml, *.xq*
+SHOWHIDDEN = false
+SEARCHMODE = 0
+FILTERRT = false
+EXECRT = true
+DBNAME = cinema
+LASTINSERT = 1
+
+# Visualizations
+MAPATTS = false
+MAPOFFSETS = 3
+MAPALGO = 0
+MAPWEIGHT = 0
+TREESLIM = true
+TREEATTS = false
+PLOTDOTS = 0
+PLOTXLOG = false
+PLOTYLOG = false
+MAXTEXT = 8388608
+MAXRESULTS = 500000
+
+# Search
+SEARCHED = 0
+REPLACED = 0
+
+# History
+COMMANDS = 0
+SEARCH = 0
+XQUERY = 0
+
+# Files
+EDITOR = 7
+EDITOR1 = C:/Users/ssaul/Downloads/examenSaul/examenSaul/Ejercicios/Xquery/Ej2/cine2.xq
+EDITOR2 = C:/Users/ssaul/Downloads/examenSaul/examenSaul/Ejercicios/Xquery/Ej1/cine.xq
+EDITOR3 = C:/Users/ssaul/Downloads/examenSaul/examenSaul/Ejercicios/Xquery/Ej3/cine3.xq
+EDITOR4 = C:/TercerTrimestre/Lenguaje Marcas/Tercer/XML-XQuery/enterprises/Ej2/enterprises.xq
+EDITOR5 = C:/TercerTrimestre/Lenguaje Marcas/Tercer/XML-XQuery/enterprises/Ej1/enterprises.xq
+EDITOR6 = C:/TercerTrimestre/Lenguaje Marcas/Tercer/XML-XQuery/projects/ej2/project.xq
+EDITOR7 = C:/TercerTrimestre/Lenguaje Marcas/Tercer/XML-XQuery/enterprises/Ej3/enterprises.xq
+INPUTS = 6
+INPUTS1 = C:/Users/ssaul/Downloads/examenSaul/examenSaul/Ejercicios/Xquery/Ej1/cinema.xml
+INPUTS2 = C:/Users/ssaul/Downloads/Marcas/XML-XQuery/enterprises/Ej1/enterprises.xml
+INPUTS3 = C:/TercerTrimestre/Lenguaje Marcas/Tercer/XML-XQuery/projects/ej1/proyect.xq
+INPUTS4 = C:/TercerTrimestre/Lenguaje Marcas/Tercer/XML-XQuery/projects/projects.xml
+INPUTS5 = C:/TercerTrimestre/Lenguaje Marcas/Tercer/XML-XQuery/enterprises/enterprises.xml
+INPUTS6 = C:/TercerTrimestre/Lenguaje Marcas/Tercer/XML-XQuery/enterprises/
+OPEN = 3
+OPEN1 = C:/Users/ssaul/Downloads/examenSaul/examenSaul/Ejercicios/Xquery/Ej1/cine.xq
+OPEN2 = C:/Users/ssaul/Downloads/examenSaul/examenSaul/Ejercicios/Xquery/Ej2/cine2.xq
+OPEN3 = C:/Users/ssaul/Downloads/examenSaul/examenSaul/Ejercicios/Xquery/Ej3/cine3.xq
+PROJECTS = 1
+PROJECTS1 = C:/TercerTrimestre/Lenguaje Marcas/Tercer/basex/
+PROJFILES = 0
+PROJCONTS = 0
+
+# Local Options

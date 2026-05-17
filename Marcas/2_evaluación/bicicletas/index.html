@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bicicletas</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+        <link href="css/bicicletas.css" rel="stylesheet" type="text/css"/>
+        
+    </head>
+    <body>
+        <div id="login_container">
+        <table id="tabla_index">
+            <tr>
+                <td><label>Usuario</label></td>
+                <td><input type="text" placeholder="Tu usuario" id="usuario"></td>
+            </tr>
+            <tr>
+                <td><label>Password</label></td>
+                <td><input type="password" placeholder="Tu password" id="password" onkeypress="chequear_key(event)"></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="center_buttons"><input type="button" value="Log in" onclick="login()"></td>
+                
+            </tr>
+        </table>
+    </div>
+    <script src="js/bicicletas.js"></script>
+    </body>
+</html>

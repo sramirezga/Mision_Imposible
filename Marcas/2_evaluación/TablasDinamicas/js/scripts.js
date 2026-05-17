@@ -6,11 +6,11 @@ function crearTabla() {
   let row = document.getElementById("row").value;
   let col = document.getElementById("col").value;
 
-  let crearTabla = "<table border=1>";
+  let crearTabla = "<table>";
 
 
   if ((row <= 0 || row > 3) || (col <= 0 || col > 3)) {
-    alert("Cantidad no válda");
+    alert("Cantidad no válida");
 
   } else {
 
@@ -19,7 +19,7 @@ function crearTabla() {
       crearTabla += "<tr>";
       for (let j = 0; j < col; j++) {
 
-        crearTabla += "<td> <img src='img/"+i + j+".jpg' width='250px' height='250px'> </td> ";
+        crearTabla += "<td> <img src='img/" + i + j+".jpg' width='250px' height='250px'> </td> ";
         
       }
 

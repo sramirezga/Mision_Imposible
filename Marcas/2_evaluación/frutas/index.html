@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frutas</title>
+</head>
+
+<style>
+    body {
+        margin-left: 2rem;
+
+    }
+
+    table th,
+    table td {
+        padding: 10px 15px;
+        /* 10px arriba/abajo y 15px a los lados */
+        text-align: left;
+        /* Opcional: alinea el texto a la izquierda */
+    }
+
+    
+
+
+
+    table tr:hover {
+        background-color: #f1f1f1;
+    }
+</style>
+
+<body>
+
+    <h1>Datos de frutas</h1>
+
+    <button id="todas" onclick="todasLasFrutas()">Ver todas </button>
+    <p>Origen
+        <input type="text" id="caja">
+        <button id="Filtrar" onclick="filtrarFrutas()">Filtrar por origen</button>
+    </p>
+
+
+    <div id="tabla"></div>
+
+
+
+
+    <!-- Mis scripts -->
+    <script src="js/scripts.js"></script>
+
+</body>
+
+</html>

@@ -83,21 +83,35 @@ public class Menu {
         int[] aux = new int[array1.length + array2.length];
 
 
-
+        int i = 0;
         int sumaPos = 0;
-          // EJEM VALE 5
-        for (int i = 0; i < array1.length - array2.length; i++) {
+        // EJEM VALE 5
 
+
+        while (i < array1.length && i < array2.length) {
+            aux[sumaPos] = array1[sumaPos];
+            sumaPos++;
+
+            aux[sumaPos] = array2[sumaPos];
+            sumaPos++;
+
+            i++;
+        }
+
+        while(i < array1.length){
             aux[sumaPos] = array1[i];
             sumaPos++;
 
+
+            i++;
+        }
+
+        while(i < array2.length){
             aux[sumaPos] = array2[i];
             sumaPos++;
 
-        }
 
-        for (int i = sumaPos; i < aux.length; i++) {
-            aux[i] = array2[i];
+            i++;
         }
 
 

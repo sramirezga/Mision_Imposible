@@ -1,0 +1,37 @@
+[{
+        "id": "0",
+        "nombre_bicicleta": "Bicicleta Eléctrica",
+        "precio": "1200",
+        "imagen": "1.jpg",
+        "color": "blanco"
+    },
+    {
+        "id": "1",
+        "nombre_bicicleta": "Bicicleta de Montaña",
+        "precio": "900",
+        "imagen": "2.jpg",
+        "color": "blanco"
+    },
+    {
+        "id": "2",
+        "nombre_bicicleta": "Bicicleta Urbana",
+        "precio": "300",
+        "imagen": "3.jpg",
+        "color": "rojo"
+    },
+    {
+        "id": "3",
+        "nombre_bicicleta": "Bicicleta Plegable",
+        "precio": "500",
+        "imagen": "4.jpg",
+        "color": "negro"
+    },
+    {
+        "id": "4",
+        "nombre_bicicleta": "Bicicleta Infantil",
+        "precio": "175",
+        "imagen": "5.jpg",
+        "color": "negro"
+    }
+    
+]
