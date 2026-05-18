@@ -87,7 +87,7 @@ public class Cuestionario extends JFrame implements ActionListener {
         };
 
         JPanel aux = new JPanel(new FlowLayout(FlowLayout.LEFT, 50, 0));
-        cajaCategorias = new JCheckBox[5];
+        cajaCategorias = new JCheckBox[opciones.length];
 
 
         for (int i = 0; i < 5; i++) {

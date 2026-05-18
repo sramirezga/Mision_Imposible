@@ -1,9 +1,11 @@
-<!ELEMENT fabricantes (fabricante)+>
-<!ELEMENT fabricante (fundador, pais, modelos)>
-<!ATTLIST fabricante id CDATA #REQUIRED logo CDATA #REQUIRED>
-<!ELEMENT fundador (#PCDATA)>
-<!ATTLIST fundador desde CDATA #REQUIRED>
-<!ELEMENT pais (#PCDATA)>
+<!ELEMENT fabricantes (fabricante+)>
+<!ELEMENT fabricante (fundador , pais, modelos )>
+<!ATTLIST fabricante 
+id CDATA #REQUIRED 
+logo CDATA #REQUIRED>
+<!ELEMENT fundador (#PCDATA )>
+<!ATTLIST fundador desde CDATA #IMPLIED>
+<!ELEMENT pais (#PCDATA )>
 <!ELEMENT modelos (modelo+)>
 <!ELEMENT modelo (nombre, segmento, inicio)>
 <!ELEMENT nombre (#PCDATA)>

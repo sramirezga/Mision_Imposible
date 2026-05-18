@@ -1,19 +1,21 @@
 <html>
 <body>
-<table>
-<tr>CINEMA</tr>
+<table border="1">
+<tr>
+<td colspan="3" align="center">CINEMA</td>
+</tr>
 <tr>
 <td >Titulo</td>
 <td>Director</td>
 <td>Fecha estreno</td>
 </tr>
 {
-for $cinema in doc/("cinema.xml")/pelicula
+for $pelicula in doc("cinema.xml")/cinema/pelicula
    return
  <tr>
- <td>{data($cinema/pelicula/titulo)}</td>
- <td>{data($cinema/pelicula/director)}</td>
-  <td>{data($cinema/pelicula/estreno)}</td>
+ <td>{data($pelicula/titulo)}</td>
+ <td>{data($pelicula/director)}</td>
+  <td>{data($pelicula/estreno)}</td>
   </tr>
  }
 </table>

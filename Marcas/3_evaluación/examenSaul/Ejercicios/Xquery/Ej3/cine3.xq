@@ -1,20 +1,20 @@
 <html>
 <body>
-<table>
-<tr>CINEMA</tr>
+<table border="1">
+<tr>
+<td colspan="2" align="center">CINEMA</td>
+</tr>
 <tr>
 <td >Titulo</td>
-<td>Director</td>
-<td>Fecha estreno</td>
+<td>Actores</td>
 </tr>
 {
-for $cinema in doc/("cinema.xml")/pelicula
-for $actor in $cinema/pelicula/reparto
-where $cinema/pelicula/[titulo/idioma = "ingles"]
+for $pelicula in doc("cinema.xml")/cinema/pelicula
+where $pelicula/titulo/@idioma = "ingles"
    return
  <tr>
- <td>{data($cinema/pelicula/titulo)}</td>
- <td>{data($cinema/pelicula/reparto/actor)}</td>
+ <td>{data($pelicula/titulo)}</td>
+ <td>{data($pelicula/reparto/actor)}</td>
   </tr>
  }
 </table>

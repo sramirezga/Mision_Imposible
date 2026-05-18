@@ -1,8 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
-<fabricantes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-xsi:noNamespaceSchemaLocation="fabricantes.xsd">
-  
+  <fabricantes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="fabricantes.xsd">
     <fabricante id="Peugeot" logo="peugeot.jpg">
       <fundador  desde="1882">Armand Peugeot</fundador>
       <pais>Francia</pais>

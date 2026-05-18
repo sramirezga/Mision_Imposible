@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.Objects;
+
 public class Pregunta {
     //Atributos
     private int id;
@@ -20,6 +23,19 @@ public class Pregunta {
     public String toString(){
         return this.enunciado;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Pregunta pregunta = (Pregunta) o;
+        return this.id == pregunta.id && indice == pregunta.indice && this.enunciado.equals(pregunta.enunciado) && Arrays.equals(this.respuestas, pregunta.respuestas);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, enunciado, Arrays.hashCode(respuestas), indice);
+    }
+
 
     //Métodos
 }

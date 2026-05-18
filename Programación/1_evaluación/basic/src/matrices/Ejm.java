@@ -128,4 +128,13 @@ public class Ejm {
         pintarMatrizIzq();
 
     }
+
+    /*
+    Bucles dentro de bucles
+    patrones
+    matrices
+    arrays
+    clase simple
+    * */
+
 }
