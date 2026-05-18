@@ -1,29 +1,39 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Catálogo de Bicicletas</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-        <link href="css/bicicletas.css" rel="stylesheet" type="text/css"/>
-        
-    </head>
-    <body>
-    
-        <div id="container">
-            <h1>CATÁLOGO DE BICICLETAS ZUBIRI</h1>
-            
-            <table id="tabla_catalogo">
 
-            </table>
-            <div class="center_buttons">
-                <input type="button" value="Log out" onclick="logout()">
-            </div>
+<head>
+    <title>Catálogo de Bicicletas</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link href="css/bicicletas.css" rel="stylesheet" type="text/css" />
+
+    <style>
+        table {
+            width: 90%;
+            margin: 5%;
+                      
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="container">
+        <h1>CATÁLOGO DE BICICLETAS ZUBIRI</h1>
+
+        <div id="tabla"></div>
+
+        <div class="center_buttons">
+            <input type="button" value="Log out" onclick="logOut()">
         </div>
+    </div>
 
-        <script src="js/bicicletas.js"></script>
-        <script>
-            print_tabla_catalogo();
-        </script>
-        
-    </body>
+    <img src="">
+
+    <!-- Mis scripts -->
+    <script src="js/scripts.js"></script>
+
+</body>
+
 </html>

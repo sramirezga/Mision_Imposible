@@ -49,7 +49,7 @@ async function filtrarFrutas() {
 
     let tabla = "<table border='1'>";
     tabla += "<tr>";
-    tabla += "<td>ID</td>";
+    tabla += "<td></td>";
     tabla += "<td>Nombre</td>";
     tabla += "<td>Precio</td>";
     tabla += "<td>Unidad</td>";

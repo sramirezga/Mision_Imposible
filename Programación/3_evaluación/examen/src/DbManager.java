@@ -9,8 +9,8 @@ public class DbManager {
     private Connection conn;
 
     private static final String URL = "jdbc:mysql://localhost:3306/examen";
-    private static final String USER = "examen";
-    private static final String PASS = "examen";
+    private static final String USER = "root";
+    private static final String PASS = "root";
 
     //Constructor
     public DbManager() {

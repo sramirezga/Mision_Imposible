@@ -82,7 +82,7 @@ public class Cuestionario extends JFrame implements ActionListener {
 
         arriba.add(new JLabel("Selecciona las categorias"), BorderLayout.NORTH);
 
-        String[] opciones = {
+        /*String[] opciones = {
                 "Cine", "Ingles", "Geografia", "Calculo", "Literatura"
         };
 
@@ -96,7 +96,23 @@ public class Cuestionario extends JFrame implements ActionListener {
             cajaCategorias[i] = new JCheckBox(opciones[i]);
 
             aux.add(cajaCategorias[i]);
+        } */
+
+        List<String> listaCategorrias = conn.todasLasCategorias();
+
+        JPanel aux = new JPanel(new FlowLayout(FlowLayout.LEFT, 50, 0));
+        cajaCategorias = new JCheckBox[listaCategorrias.size()];
+
+        for(int i = 0; i < cajaCategorias.length; i++){
+
+            cajaCategorias[i] = new JCheckBox(listaCategorrias.get(i));
+
+
+            aux.add(cajaCategorias[i]);
+
         }
+
+
 
         arriba.add(aux, BorderLayout.CENTER);
         return arriba;
