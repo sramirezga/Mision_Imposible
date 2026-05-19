@@ -14,9 +14,9 @@ public class Canario extends Pajaro {
 
     //Métodos
     public void medir() {
-        if (this.talla >= 31) {
+        if (this.talla > 30) {
             System.out.println("Talla grande");
-        } else if (this.talla > 14 && this.talla <= 30) {
+        } else if (this.talla > 14 ) {
             System.out.println("Talla mediana");
         } else {
             System.out.println("Talla pequeña");

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agencia de viaje</title>
+    <link href="css/travel.css" rel="stylesheet" type="text/css" />
+   
+</head>
+
+<body>
+
+        <div id="container">
+        <h1>Registro de vuelos</h1>
+        <table id="flight_form">
+            <tr>
+                <td>Origen:</td>
+                <td>
+                    <select name="origen" id="departure_city">
+                        <option value="Bilbo">Bilbo</option>
+                        <option value="Hondarribi">Hondarribi</option>
+                        <option value="Biarritz">Biarritz</option>
+                        <option value="Madrid">Madrid</option>
+                    </select>
+                </td>
+              
+            </tr>
+            <tr>
+                <td>Destino:</td>
+                <td>
+                    <select name="destino" id="destination_city">
+                        <option value="Nueva York">Nueva York</option>
+                        <option value="Londres">Londres</option>
+                        <option value="Marraquets">Marraquets</option>
+                        <option value="Estanbul">Estanbul</option>
+                    </select>
+                </td>
+                
+            </tr>
+            <tr>
+                <td>Precio:</td>
+                <td><input type="number" min="1" id="flight_price"/></td>
+            </tr>
+        </table>
+        <div id="buttons">
+            <button  type="button" onclick="anadirVuelo()">Añadir vuelo</button>
+            <button  type="button" onclick="LogOut()">Cerrar sesión</button>
+        </div>
+        <h3>Vuelos disponibles</h3>
+        
+           <div id="display"></div>
+    </div>   
+
+
+     <!-- Mis scripts -->
+     <script src="js/scripts.js"></script>
+</body>
+
+</html>

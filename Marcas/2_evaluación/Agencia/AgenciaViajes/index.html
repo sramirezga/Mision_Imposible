@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agencia de viaje</title>
+    <link href="css/travel.css" rel="stylesheet" type="text/css" />
+    
+</head>
+
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <table id="login">
+            <tr>
+                <td><label>Usuario:</label></td>
+                <td><input type="text" placeholder="Introduce el usuario" id="username" /></td>
+            </tr>
+            <tr>
+                <td><label>Password:</label></td>
+                <td><input type="password" placeholder="Introduce la password" id="password" onkeypress="check_enter(event)"/></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button type="button" onclick="logIn()">Iniciar sesión</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+
+    <!-- Mis scripts -->
+     <script src="js/scripts.js"></script>
+</body>
+
+</html>

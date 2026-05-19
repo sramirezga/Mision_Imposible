@@ -13,7 +13,7 @@ public class Loro extends Pajaro {
             this.zona = zona;
         }else{
             System.out.println("Zona inválida");
-            numeroAvez --;
+           // numeroAvez --;
         }
 
         this.color = color;

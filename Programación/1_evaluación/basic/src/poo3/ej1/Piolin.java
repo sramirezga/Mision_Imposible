@@ -1,6 +1,6 @@
 package poo3.ej1;
 
-public class Piolin extends Canario{
+public class Piolin extends Canario {
     //Atributos
     private int numeroPeliculas;
 
@@ -11,14 +11,12 @@ public class Piolin extends Canario{
         this.numeroPeliculas = numeroPeliculas;
     }
 
-
     //Métodos
-
 
     public static void main(String[] args) {
 
         Piolin piolin1 = new Piolin('M', 3, 2.5, 2);
-                piolin1.quienSoy();
+        piolin1.quienSoy();
         piolin1.medir();
 
 
@@ -33,8 +31,8 @@ public class Piolin extends Canario{
 
         loro1.setZona('O');
         loro1.deDondeEres();
+        System.out.println(getNumeroAvez());
 
-        System.out.println(numeroAvez);
 
 
 
