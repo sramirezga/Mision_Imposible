@@ -7,15 +7,15 @@
     <link href="css/travel.css" rel="stylesheet" type="text/css"/>
    
 </head>
-<body>
+<body onload="mostrarVuelosUsuarios()">
     <div id="container">
         <h1>Vuelos disponibles</h1>
-        <table id="flights_table">
-
-        </table>
+        <div id="vuelosDisponibles"></div>
         <div class="centered_buttons">
-            <button type="button" id="botonPago">Pago</button>
+            <button type="button" id="botonPago" onclick="pago()">Pago</button>
              <button type="button" id="botonCerrar" onclick="LogOut()">Cerrar sesión</button>
+
+             
         </div>
     </div>
 
