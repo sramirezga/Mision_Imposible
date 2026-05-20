@@ -17,7 +17,7 @@ public class EmpleadoComision extends Empleado {
         }
 
 
-        if (comision == 0 || comision == 1) {
+        if (comision > -1 && comision < 2) {
             this.comision = 0;
         } else {
             this.comision = comision;

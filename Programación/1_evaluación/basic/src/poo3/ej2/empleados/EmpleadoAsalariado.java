@@ -23,7 +23,7 @@ public class EmpleadoAsalariado extends Empleado implements Pagable{
 
     @Override
     public float ganancias() {
-        return this.salarioSemanal;
+        return this.salarioSemanal * 4;
     }
 
     @Override

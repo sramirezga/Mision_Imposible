@@ -1,6 +1,4 @@
 
-
-
 //LogIn
 async function logIn() {
     //Obtener datos del json accounts
@@ -13,10 +11,8 @@ async function logIn() {
     let usuario = document.getElementById("username").value;
     let pass = document.getElementById("password").value;
 
-
     let encontrado = false;
     let esAdmin = false;
-
 
     for (let i = 0; i < usuarios.length; i++) {
         if (usuario == usuarios[i].username && pass == usuarios[i].password) {
@@ -30,8 +26,10 @@ async function logIn() {
 
     //Abrir pagina según usuario
     if (encontrado && esAdmin) {
+        localStorage.setItem("usuarioActual", usuario);
         window.location.href = "registro_vuelos.html"
     } else if (encontrado) {
+        localStorage.setItem("usuarioActual", usuario);
         window.location.href = "reserva_vuelos.html"
     } else {
         alert("Usuario o contraseña incorrecta inténtelo otra vez!")
@@ -39,7 +37,6 @@ async function logIn() {
 
 
 }
-
 
 //Añadir vuelo
 function anadirVuelo() {
@@ -56,7 +53,7 @@ function anadirVuelo() {
 
         let vuelos;
 
-        //Miro si vuelos no esta vacio y si esta vadcio creo un array para 
+        //Miro si vuelos no esta vacio y si esta vacio creo un array para 
         //poder hacer push del nuevo vuelo
         if (localStorage.getItem("vuelos") == null) {
             vuelos = [];
@@ -81,10 +78,8 @@ function anadirVuelo() {
 
 }
 
-
 //Mostra vuelo
 function mostrarVuelosAdmin() {
-
     //Obtener los vuelos guarddos den la memoria
     let vuelos = JSON.parse(localStorage.getItem("vuelos"));
 
@@ -100,7 +95,6 @@ function mostrarVuelosAdmin() {
         tabla += "<hr>";
 
         for (let i = 0; i < vuelos.length; i++) {
-
             tabla += "<tr>";
             tabla += "<td>" + vuelos[i].origen + "  <td>";
             tabla += "<td>" + vuelos[i].destino + "   <td>";
@@ -112,10 +106,6 @@ function mostrarVuelosAdmin() {
 
         document.getElementById("display").innerHTML = tabla;
     }
-
-
-
-
 }
 
 function mostrarVuelosUsuarios() {
@@ -141,8 +131,8 @@ function mostrarVuelosUsuarios() {
             tabla += "<td>" + vuelos[i].origen + "  <td>";
             tabla += "<td>" + vuelos[i].destino + "   <td>";
             tabla += "<td>" + vuelos[i].precio + "  <td>";
-            tabla += "<td><input type='text' id='cantidad" + i + "'> <td>";
-            tabla += "<td><button onclick='anadirCantidadVuelos(" + i  +" )'>Añadir</button>   <td>";
+            tabla += "<td><input type='number' id='cantidad-" + i + "' min='1' max='5'> <td>";
+            tabla += "<td><button onclick='anadirCantidadVuelos(" + i + ")'>Añadir</button><td>";
 
             tabla += "</tr>";
         }
@@ -157,20 +147,121 @@ function mostrarVuelosUsuarios() {
 
 }
 
-function anadirCantidadVuelos(){
+function anadirCantidadVuelos(i) {
+
+    let vuelos = JSON.parse(localStorage.getItem("vuelos"));
+
+    let vueloElegido = vuelos[i];
+
+    let cantidad = document.getElementById("cantidad-" + i).value;
+
+    let usuarioActual = localStorage.getItem("usuarioActual");
+    let clavePedidos = "pedidos-" + usuarioActual;
+
+    if (cantidad < 1) {
+        alert("La cantidad debe ser mayor a cero")
+    } else {
+        // alert("entra");
+        let nuevo_pedido = {
+            origen: vueloElegido.origen,
+            destino: vueloElegido.destino,
+            precio: vueloElegido.precio,
+            cantidad: cantidad,
+        };
 
 
-    alert("Pedido añadido correctamente")
+        let pedidos;
+
+        if (localStorage.getItem(clavePedidos) == null) {
+            pedidos = [];
+        } else {
+            //Convierto pedidos a un array
+            pedidos = JSON.parse(localStorage.getItem(clavePedidos));
+        }
+
+        pedidos.push(nuevo_pedido);
+
+        //Coverto el array a string
+        localStorage.setItem(clavePedidos, JSON.stringify(pedidos));
+
+
+        alert("Tu pedido ha sido correctamente añadido");
+    }
+}
+
+function mostrarVuelosReservador() {
+
+    let usuarioActual = localStorage.getItem("usuarioActual");
+    let clavePedidos = "pedidos-" + usuarioActual;
+
+    let pedidos = JSON.parse(localStorage.getItem(clavePedidos));
+
+
+    if (pedidos == null) {
+        alert("No tienes ningún pedido");
+    } else {
+        let tabla = "<table>";
+        tabla += "<tr>";
+        tabla += "<td>Origen</td>";
+        tabla += "<td>Destino</td>";
+        tabla += "<td>Precio</td>";
+        tabla += "<td>Cantidad</td>";
+        tabla += "<td>Total</td>";
+        tabla += "</tr>";
+        tabla += "<hr>";
+
+
+        let totalApagar = 0;
+
+
+        for (let i = 0; i < pedidos.length; i++) {
+
+            let subTotal = pedidos[i].precio * pedidos[i].cantidad;
+            totalApagar += subTotal;
+
+            tabla += "<tr>";
+            tabla += "<td>" + pedidos[i].origen + "</td>";
+            tabla += "<td>" + pedidos[i].destino + "</td>";
+            tabla += "<td>" + pedidos[i].precio + "</td>";
+            tabla += "<td>" + pedidos[i].cantidad + "</td>";
+            tabla += "<td>" + subTotal + "€</td>";
+            tabla += "</tr>";
+        }
+
+        tabla += "<tr>";
+        tabla += "<td></td>";
+        tabla += "<td></td>";
+        tabla += "<td></td>";
+        tabla += "<td>TOTAL A PAGAR</td>";
+        tabla += "<td>" + totalApagar + "€</td>";
+        tabla += "</tr>";
+
+        tabla += "</table>";
+
+        document.getElementById("flight_table").innerHTML = tabla;
+    }
+
+
 }
 
 function pago() {
     window.location.href = "pedido.html";
 }
 
-
 //LogOut
 function LogOut() {
-    //Borro el array de vuelos que estám en memoria
-    //localStorage.removeItem("vuelos");
+    //Borro el array de vuelos que están en memoria
+    localStorage.removeItem("vuelos");
+
+
+    //borro los pedidos por cada usuario
+    /*let usuarioActual = localStorage.getItem("usuarioActual");
+    let clavePedidos = "pedidos-" + usuarioActual;    
+    localStorage.removeItem(clavePedidos);*/
+
+
     window.location.href = "index.html";
 }
+
+
+

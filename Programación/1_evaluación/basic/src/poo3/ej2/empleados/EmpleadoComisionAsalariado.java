@@ -21,7 +21,7 @@ public class EmpleadoComisionAsalariado extends EmpleadoComision implements Paga
     //Métodos
     @Override
     public float ganancias() {
-        return this.salarioBase + this.getVentas() * this.getComision();
+        return super.ganancias() + this.salarioBase;
     }
 
     @Override

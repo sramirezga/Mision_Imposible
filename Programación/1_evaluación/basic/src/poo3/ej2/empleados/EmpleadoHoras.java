@@ -36,12 +36,12 @@ public class EmpleadoHoras extends Empleado implements Pagable {
 
             float valorPorCadaHoraExtra = this.tarifa * 1.5f;
 
-            float totalGananciasPorHoraExdtra = cantidadHorasExtra * valorPorCadaHoraExtra;
+            float totalGananciasPorHoraExtra = cantidadHorasExtra * valorPorCadaHoraExtra;
 
             //Horas por taridas + total de gannancias
-            return 40 * this.tarifa + totalGananciasPorHoraExdtra;
+            return 40 * this.tarifa + totalGananciasPorHoraExtra;
         } else {
-            return (float) this.horas * this.tarifa;
+            return this.horas * this.tarifa;
         }
     }
 
