@@ -1,4 +1,3 @@
-
 //LogIn
 async function logIn() {
     //Obtener datos del json accounts
@@ -26,6 +25,7 @@ async function logIn() {
 
     //Abrir pagina según usuario
     if (encontrado && esAdmin) {
+        //Guardo en memoria el usuario actual
         localStorage.setItem("usuarioActual", usuario);
         window.location.href = "registro_vuelos.html"
     } else if (encontrado) {
@@ -35,11 +35,11 @@ async function logIn() {
         alert("Usuario o contraseña incorrecta inténtelo otra vez!")
     }
 
-
 }
 
 //Añadir vuelo
 function anadirVuelo() {
+    //Valores de los input para añadir vuelos
     let origen = document.getElementById("departure_city").value;
     let destino = document.getElementById("destination_city").value;
     let precio = document.getElementById("flight_price").value;
@@ -53,24 +53,24 @@ function anadirVuelo() {
 
         let vuelos;
 
-        //Miro si vuelos no esta vacio y si esta vacio creo un array para 
-        //poder hacer push del nuevo vuelo
+        //Compruebo si ya hay vuelos guardadados en local store
         if (localStorage.getItem("vuelos") == null) {
+            //Si no hay creo array para hacer push del nuevo_vuelo
             vuelos = [];
         } else {
-            //Convertir vuelos a array para porder hacer push del nuevo objeto "nuevo_vuelo"
+            //Si hay, los convierto en un array para hacer push del nuevo_vuelo
             vuelos = JSON.parse(localStorage.getItem("vuelos"));
         }
 
-
         vuelos.push(nuevo_vuelo);
 
-        //Coverto el array a string
+        //Covierto el array a string "local store guarda texto"
         localStorage.setItem("vuelos", JSON.stringify(vuelos));
 
-
-        mostrarVuelosAdmin();
+        
         alert("Vuelo añadido");
+        //Muestra el vuelo añadido
+        mostrarVuelosAdmin();
 
     } else {
         alert("El precio tiene que ser mayor que 0")
@@ -78,7 +78,7 @@ function anadirVuelo() {
 
 }
 
-//Mostra vuelo
+//Mostra vuelos Admin
 function mostrarVuelosAdmin() {
     //Obtener los vuelos guarddos den la memoria
     let vuelos = JSON.parse(localStorage.getItem("vuelos"));
@@ -98,16 +98,18 @@ function mostrarVuelosAdmin() {
             tabla += "<tr>";
             tabla += "<td>" + vuelos[i].origen + "  <td>";
             tabla += "<td>" + vuelos[i].destino + "   <td>";
-            tabla += "<td>" + vuelos[i].precio + "  <td>";
+            tabla += "<td>" + vuelos[i].precio + "€  <td>";
             tabla += "</tr>";
         }
 
         tabla += "</table>";
 
+        //Pinto la tabla en el elmento con este id
         document.getElementById("display").innerHTML = tabla;
     }
 }
 
+//Mostra vuelos disponibles en usuarios
 function mostrarVuelosUsuarios() {
 
     //Obtener los vuelos guarddos den la memoria
@@ -126,19 +128,18 @@ function mostrarVuelosUsuarios() {
         tabla += "<hr>";
 
         for (let i = 0; i < vuelos.length; i++) {
-
             tabla += "<tr>";
             tabla += "<td>" + vuelos[i].origen + "  <td>";
             tabla += "<td>" + vuelos[i].destino + "   <td>";
-            tabla += "<td>" + vuelos[i].precio + "  <td>";
-            tabla += "<td><input type='number' id='cantidad-" + i + "' min='1' max='5'> <td>";
+            tabla += "<td>" + vuelos[i].precio + "€ <td>";
+            tabla += "<td><input type='number' id='cantidad-" + i + "' min='1' max='5'><td>";
             tabla += "<td><button onclick='anadirCantidadVuelos(" + i + ")'>Añadir</button><td>";
-
             tabla += "</tr>";
         }
 
         tabla += "</table>";
 
+        //Pinto la tabla en el elmento con este id
         document.getElementById("vuelosDisponibles").innerHTML = tabla;
     }
 
@@ -147,21 +148,29 @@ function mostrarVuelosUsuarios() {
 
 }
 
+//cantidad de vuelos
 function anadirCantidadVuelos(i) {
 
+    //Obtengo los vuelos
     let vuelos = JSON.parse(localStorage.getItem("vuelos"));
 
+    //guardo que vuelo esta seleciionaddo
     let vueloElegido = vuelos[i];
 
+    //obtengo la cantidad de billetes
     let cantidad = document.getElementById("cantidad-" + i).value;
+
 
     let usuarioActual = localStorage.getItem("usuarioActual");
     let clavePedidos = "pedidos-" + usuarioActual;
 
     if (cantidad < 1) {
+        // alert("entra");
         alert("La cantidad debe ser mayor a cero")
     } else {
         // alert("entra");
+
+        //Creo el objeto pedido con el vuelo elegido
         let nuevo_pedido = {
             origen: vueloElegido.origen,
             destino: vueloElegido.destino,
@@ -173,12 +182,14 @@ function anadirCantidadVuelos(i) {
         let pedidos;
 
         if (localStorage.getItem(clavePedidos) == null) {
+            //Si no hay pedidos creo el array vacio
             pedidos = [];
         } else {
-            //Convierto pedidos a un array
+            //si hay pedidos recupero el arrayu de pedidos
             pedidos = JSON.parse(localStorage.getItem(clavePedidos));
         }
 
+        //add nuevo_pedido
         pedidos.push(nuevo_pedido);
 
         //Coverto el array a string
@@ -189,16 +200,20 @@ function anadirCantidadVuelos(i) {
     }
 }
 
+//Muestro pedidos reservador por cada usuario
 function mostrarVuelosReservador() {
 
+    //Obtengo el usuario de memoria 
     let usuarioActual = localStorage.getItem("usuarioActual");
+    // clave para saber los pedidos del usuario actual
     let clavePedidos = "pedidos-" + usuarioActual;
 
+    //Convierto a array los peddidos del usuario actual
     let pedidos = JSON.parse(localStorage.getItem(clavePedidos));
 
 
     if (pedidos == null) {
-        alert("No tienes ningún pedido");
+        alert("No tienes vuelos reservados.");
     } else {
         let tabla = "<table>";
         tabla += "<tr>";
@@ -215,14 +230,15 @@ function mostrarVuelosReservador() {
 
 
         for (let i = 0; i < pedidos.length; i++) {
-
+            //Subtotal de cada pedido
             let subTotal = pedidos[i].precio * pedidos[i].cantidad;
+            //Sumo cada subtotal de cada pedido
             totalApagar += subTotal;
 
             tabla += "<tr>";
             tabla += "<td>" + pedidos[i].origen + "</td>";
             tabla += "<td>" + pedidos[i].destino + "</td>";
-            tabla += "<td>" + pedidos[i].precio + "</td>";
+            tabla += "<td>" + pedidos[i].precio + "€</td>";
             tabla += "<td>" + pedidos[i].cantidad + "</td>";
             tabla += "<td>" + subTotal + "€</td>";
             tabla += "</tr>";
@@ -237,28 +253,27 @@ function mostrarVuelosReservador() {
         tabla += "</tr>";
 
         tabla += "</table>";
-
+        //Pinto en el elemento con este id
         document.getElementById("flight_table").innerHTML = tabla;
     }
 
-
 }
 
+//Pago
 function pago() {
     window.location.href = "pedido.html";
 }
 
 //LogOut
 function LogOut() {
-    //Borro el array de vuelos que están en memoria
-    localStorage.removeItem("vuelos");
+    //Borro el array de vuelos que están en memoria    
+    //localStorage.removeItem("vuelos");
 
 
-    //borro los pedidos por cada usuario
+    //borro el array de pedidos por cada usuario
     /*let usuarioActual = localStorage.getItem("usuarioActual");
     let clavePedidos = "pedidos-" + usuarioActual;    
-    localStorage.removeItem(clavePedidos);*/
-
+    localStorage.removeItem(clavePedidos); */
 
     window.location.href = "index.html";
 }

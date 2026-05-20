@@ -137,6 +137,11 @@ button:hover {
     width:auto;
 }
 
+#vuelosDisponibles{
+    width: 80%;
+    /* border: 2px solid red; */
+}
+
 /*
 #vuelosDisponibles input{
     width: 8rem;
