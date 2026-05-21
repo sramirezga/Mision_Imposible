@@ -38,7 +38,13 @@ public abstract class Pajaro {
     }
 
     public void quienSoy() {
-        System.out.println("Sexo: " + this.sexo + " y mi edad es " + this.edad + this.nombres.toString());
+        System.out.println(this.toString());
+    }
+
+
+    @Override
+    public String toString(){
+        return  "Sexo: " + this.sexo + " y mi edad es " + this.edad + " " + this.nombres.toString() + " ";
     }
 
     public abstract void cantar();

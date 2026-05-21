@@ -33,5 +33,8 @@ public class DatoPersonal {
         this.nombreDueno = nombreDueno;
     }
 
-
+    @Override
+    public String toString(){
+        return "Nombre pajaro: " + this.nombrePajaro + " Nombre dueño: " +  this.nombreDueno;
+    }
 }

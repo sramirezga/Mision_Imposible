@@ -5,22 +5,23 @@ public class Main {
     public static void main(String[] args) {
 
         Piolin p1 = new Piolin('H', 2, 3.4, new DatoPersonal("felipe", "Saul"), 2);
-        System.out.println(p1.toString() + " " + p1.getNombres().getNombrePajaro() + " " + p1.getNombres().getNombreDueno());
+        System.out.println(p1.toString());
 
         Piolin p2 = new Piolin('M', 4, 8.4, new DatoPersonal("x", "Unai"), 4);
-        System.out.println(p2.toString() + " " + p2.getNombres().getNombrePajaro() + " " + p2.getNombres().getNombreDueno());
+        System.out.println(p2.toString());
 
         Piolin p3 = new Piolin('H', 6, 7.4, new DatoPersonal("y", "Ander"), 6);
-        System.out.println(p3.toString() + " " + p3.getNombres().getNombrePajaro() + " " + p3.getNombres().getNombreDueno());
+        System.out.println(p3.toString());
 
 
         p1.getNombres().setNombreDueno("pedrito");
+
         p1.getNombres().setNombrePajaro("conchi");
-        System.out.println(p1.toString() + " " + p1.getNombres().getNombrePajaro() + " " + p1.getNombres().getNombreDueno());
+        System.out.println(p1.toString());
 
 
         Loro l1 = new Loro('H', 10, new DatoPersonal("kike", "Giga"),'S', "Verde" );
-        System.out.println(l1.toString() + " " + p3.getNombres().getNombrePajaro() + " " + p3.getNombres().getNombreDueno());
+        System.out.println(l1.toString());
 
         Pajaro[] pajaros = new Pajaro[4];
         pajaros[0] = p1;

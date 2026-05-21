@@ -48,7 +48,7 @@ public class Loro extends Pajaro {
 
 
     public String toString(){
-        return  super.toString() + " " + this.zona + " " +  this.color;
+        return  super.toString() + " Mi zona es " + this.zona + " y soy de color " +  this.color;
     }
 
     public void setZona(char zona) {

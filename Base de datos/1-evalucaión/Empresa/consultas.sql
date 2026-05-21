@@ -162,6 +162,105 @@ year() devuelve el año
 min() ejem primer pedido 
 */
 
+/*
 select numemp, nombre, datediff(current_date(),contrato), year(current_date()) -edad
-from empleados
+from empleados */
+
+
+/*reflexiba*/
+select e.numemp, e.nombre, e.cuota, j.nombre as nombre_jefe, j.cuota as cuota_jefe
+from empleados e inner join empleados j on e.jefe = j.numemp
+where e.cuota >= j.cuota;
+
+select avg(cuota), avg(ventas) 
+from empleados;
+
+select avg(pe.importe) as importe_medio, sum(pe.importe) as importe_total_pedidos,
+avg(pro.precio) as precio_media_venta
+from pedidos pe inner join productos pro on pe.id_producto = pro.idproducto;
+
+select avg(precio) as precio_medio
+from productos
+where idfab = 'aci';
+
+
+select sum(p.importe) as importe_total
+from pedidos p inner join empleados e on p.numemp = e.numemp
+where e.nombre = 'Vicente Pantalla';
+
+select min(fecha_pedido)
+from pedidos;
+
+select count(idpedido)
+from pedidos
+where importe > 1500;
+
+
+
+/*-------Copias de todas las tablas -------------*/
+
+create table nuevaempleados as
+select * 
+from empleados;
+
+select * from nuevaempleados;
+
+create table nuevaoficinas as
+select *
+from oficinas;
+
+create table nuevaproductos as
+select * 
+from productos;
+
+create table nuevapedidos as
+select *
+from pedidos;
+
+create table nuevaclientes as
+select * 
+from clientes;
+
+update nuevaproductos
+set precio = precio * 1.05
+where idfab = 'aci';
+
+insert into nuevaoficinas(cod_oficina,ciudad, region,objetivo)
+values(30, 'Madrid', 'centro', 600);
+
+select * from nuevaoficinas where cod_oficina = 30;
+
+update nuevaoficinas
+set ventas = 10
+where cod_oficina = 30;
+
+update nuevaempleados
+set 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -21,7 +21,7 @@ public class Piolin extends Canario {
     }
 
     public String toString(){
-        return  super.toString() + " " + this.numeroPeliculas;
+        return  super.toString() + " número de peliculas " + this.numeroPeliculas;
     }
 
 }

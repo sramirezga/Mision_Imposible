@@ -33,6 +33,6 @@ public abstract class Canario extends Pajaro {
 
     @Override
     public String toString(){
-        return  super.toString() + " " + this.talla;
+        return  super.toString() + " mi  talla es " + this.talla;
     }
 }
