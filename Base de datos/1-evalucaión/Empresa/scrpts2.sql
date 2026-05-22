@@ -199,6 +199,47 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 
+/*----------parte 3 empresa----------*/
+
+select * from empleados;
+
+describe empleados;
+alter table empleados 
+add tipo varchar(20);
+
+create table representantes(
+numemp int primary key,
+contrato date,
+edad int,
+nombre varchar(50),
+titulo varchar(50),
+tipo varchar(50) ,
+cuota decimal(10,2),
+ventas decimal(10,2)
+);
+
+
+create table directores (
+numemp int primary key,
+contrato date,
+edad int,
+nombre varchar(50),
+titulo varchar(50),
+tipo varchar(50) 
+);
+
+create table nominas (
+numNomina int primary key,
+fechainicio date,
+fechafin date,
+importe decimal(10,2)
+);
+
+alter table nominas
+add constraint fk_nominas_director
+foreign key () references empleados()
+on update cascasde on delete set null;
+
 
 
 

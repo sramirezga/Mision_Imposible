@@ -29,6 +29,7 @@ async function logIn() {
         localStorage.setItem("usuarioActual", usuario);
         window.location.href = "registro_vuelos.html"
     } else if (encontrado) {
+        //Guardo en memoria el usuario actual
         localStorage.setItem("usuarioActual", usuario);
         window.location.href = "reserva_vuelos.html"
     } else {

@@ -230,27 +230,76 @@ values(30, 'Madrid', 'centro', 600);
 
 select * from nuevaoficinas where cod_oficina = 30;
 
-update nuevaoficinas
-set ventas = 10
-where cod_oficina = 30;
+update nuevaempleados
+set cod_oficina = 30
+where cod_oficina = 21;
+
+
+select * from nuevapedidos where numemp =  105;
+delete from nuevapedidos where numemp = 105;
 
 update nuevaempleados
-set 
+set cod_oficina = 21
+where cod_oficina = 30;
+
+update nuevaclientes
+set limite_credito = limite_credito + 100
+where nombre like 'J%';
 
 
 
+select * from nuevaproductos  where idfab = 'aci';
+delete from nuevaproductos where idfab = 'aci';
+
+select * from nuevaclientes where numclie = 2120;
+
+update nuevaclientes
+set nombre = 'Jon bueno', limite_credito = limite_credito * 1.01
+where numclie = 2120;
+
+describe nuevaclientes;
+
+/*Añade una foren key wn la tabla clientes con empleados*/
+alter table nuevaclientes
+add constraint fk_nuevaclientes_nuevaempleados
+foreign key (representante_numemp) references nuevaempleados(numemp)
+on update cascade
+on delete set null;
+
+select * from nuevaclientes;
+select * from nuevaempleados;
+
+select *
+from nuevaclientes
+where numclie = 109;
+
+delete from nuevaempleados where numemp = 109;
+
+select * 
+from nuevaclientes
+where representante_numemp = 201;
+
+update nuevaempleados
+set numemp = 201
+where numemp = 101;
+
+select *
+from nuevaclientes
+where representante_numemp = 101;
+
+/*38*/
+
+update nuevaoficinas
+set cod_oficina = 112
+where cod_oficina = 12;
+
+select * from nuevaoficinas where cod_oficina = 12;
 
 
+/* ----------------------parte 3  empresa-----------------------------*/
 
 
-
-
-
-
-
-
-
-
+/*Subsconsultas*/
 
 
 

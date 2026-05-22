@@ -1,9 +1,6 @@
 package collections;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class Agenda {
     // Atributos
@@ -11,15 +8,12 @@ public class Agenda {
     private final int totalEntradas;
     public Scanner sc = new Scanner(System.in);
 
-
     //Constructor
     public Agenda(int totalEntradas) {
         this.totalEntradas = totalEntradas;
 
-
         this.entradas = new HashMap<>();
     }
-
 
     //Métodos
 
@@ -122,9 +116,57 @@ public class Agenda {
         return cont;
     }
 
+    public void anadirTel(String nombre, String tel) {
+
+        String[] telefonos = entradas.get(nombre);
+        boolean encontrado = false;
+
+        for (int i = 0; i < telefonos.length; i++) {
+            if (telefonos[i].equals(tel)) {
+                encontrado = true;
+            }
+        }
+
+        String[] aux = new String[telefonos.length + 1];
+
+        for (int i = 0; i < telefonos.length; i++) {
+            aux[i] = telefonos[i];
+        }
+
+        //En la ultima pos agrego el tel
+        aux[aux.length - 1] = tel;
+
+        entradas.put(nombre, aux);
+
+    }
+
+    public void borrarTel(String nombre, String tel) {
+
+        // String[] telefonos = entradas.get(nombre);
+
+
+        Iterator<Map.Entry<String, String[]>> it = entradas.entrySet().iterator();
+
+        while (it.hasNext()) {
+            Map.Entry<String, String[]> entry = it.next();
+
+            String[] telActuales = entry.getValue();
+
+            boolean encontraso = false;
+
+            for (int i = 0; i < telActuales.length; i++) {
+                if (telActuales[i].equals(tel)) {
+                    encontraso = true;
+                }
+            }
+
+            if (encontraso) {
+                it.remove();
+            }
+        }
+    }
 
     public static void main(String[] args) {
-
 
         Agenda a = new Agenda(2);
 
@@ -143,9 +185,6 @@ public class Agenda {
                 "3333",
                 "4444"
         };
-
-        a.anadirEntradas("Iris", tel2);
-        System.out.println("Mostar segunda vez");
         a.mostra();
 
 
@@ -167,5 +206,14 @@ public class Agenda {
         System.out.println(a.cantidadDeUnNumero("4444"));
 
 
+        a.mostra();
+        a.anadirTel("Saul", "64563478563478");
+
+
+        a.mostra();
+
     }
+
+
 }
+
