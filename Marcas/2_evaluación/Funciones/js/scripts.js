@@ -82,7 +82,7 @@ function operacion(n1, n2, operador) {
             break;
 
         case "/":
-            if (n2 === 0) {
+            if (n2 == 0) {
                 alert("No se puede dividir por cero");
             } else {
                 return n1 / n2;

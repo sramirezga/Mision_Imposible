@@ -141,9 +141,27 @@ public class Agenda {
     }
 
     public void borrarTel(String nombre, String tel) {
+        String[] telefonos = entradas.get(nombre);
 
-        // String[] telefonos = entradas.get(nombre);
+        String[] aux = new String[telefonos.length - 1];
 
+        /* 1223, 67363271, 2346726734 */
+        /*1234*/
+
+        int cont = 0;
+
+        for (int i = 0; i < telefonos.length; i++) {
+            if (!telefonos[i].equals(tel)) {
+                aux[cont] = telefonos[i];
+                cont ++;
+            }
+        }
+
+        entradas.put(nombre, aux);
+
+    }
+
+    public void borrarTel2(String tel) {
 
         Iterator<Map.Entry<String, String[]>> it = entradas.entrySet().iterator();
 
@@ -161,7 +179,19 @@ public class Agenda {
             }
 
             if (encontraso) {
-                it.remove();
+                String[] aux = new String[telActuales.length - 1];
+
+                int cont = 0;
+
+                for (int i = 0; i < telActuales.length; i++) {
+                    if (!telActuales[i].equals(tel)) {
+                        aux[cont] = telActuales[i];
+                        cont ++;
+                    }
+                }
+
+                entry.setValue(aux);
+               // entradas.put(entry.getKey(), aux);
             }
         }
     }
@@ -181,7 +211,7 @@ public class Agenda {
         a.mostra();
 
 
-        String[] tel2 = {
+       /* String[] tel2 = {
                 "3333",
                 "4444"
         };
@@ -210,6 +240,13 @@ public class Agenda {
         a.anadirTel("Saul", "64563478563478");
 
 
+        a.mostra(); */
+
+
+       /* a.borrarTel("Saul", "11111"); */
+
+
+       a.borrarTel2("11111");
         a.mostra();
 
     }

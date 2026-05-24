@@ -16,12 +16,10 @@
     <h1>Formulario de inscripción</h1>
 
     <table border="1">
-
         <tr>
             <td>
                 <label for="nombre_apellido">Nombre y Apellido</label>
             </td>
-
             <td>
                 <input type="text" name="Nombre_apellido" id="nombre_apellido">
             </td>
@@ -29,7 +27,7 @@
 
         <tr>
             <td>
-                <label for="telefono">Télefono</label>                
+                <label for="telefono">Télefono</label>
             </td>
             <td>
                 <input type="text" name="Télefono" id="telefono">
@@ -38,13 +36,13 @@
 
         <tr>
             <td>
-                <span>Vehículo</span>                
+                <span>Vehículo</span>
             </td>
             <td>
                 <label for="coche">Coche</label>
-                <input type="radio" name="vehiculo" id="coche" value="coche" >
+                <input type="radio" name="vehiculo" id="coche" value="coche">
                 <label for="moto">Moto</label>
-                <input type="radio" name="vehiculo" id="moto" value="moto" >
+                <input type="radio" name="vehiculo" id="moto" value="moto">
             </td>
         </tr>
 
@@ -54,18 +52,41 @@
             </td>
 
             <td>
-                <input type="text" name="Tipo_examen" id="tipo_examen">
+                <input list="tipo_examenes" id="tipo_examen" autocomplete="off">
+                <datalist id="tipo_examenes">
+                    <option value="Teórico">
+                    <option value="Pista">
+                    <option value="Carretera">
+                </datalist>
             </td>
         </tr>
 
 
         <tr>
             <td>
-                <label >Disponibilidad</label>
+                <label>Disponibilidad</label>
             </td>
 
             <td>
-                <input type="checkbox" name="Tipo_examen" id="">
+                <label>Lunes</label><input type="checkbox" name="lunes" value="Lunes">
+                <label>Martes</label><input type="checkbox" name="Martes" value="Martes">
+                <label>Miércoles</label><input type="checkbox" name="Miercoles" value="Miércoles">
+                <label>Jueves</label><input type="checkbox" name="Jueves" value="Jueves">
+                <label>Viernes</label><input type="checkbox" name="Viernes" value="Viernes">
+            </td>
+        </tr>
+
+        <tr>
+            <td><label>Notas:</label></td>
+            <td>
+                <textarea id="notas" cols="50" rows="3"></textarea>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <input type="button" value="Agregar" onclick="agregar()">
+                <input type="button" value="Resetear" onclick="limpiar()">
             </td>
         </tr>
 

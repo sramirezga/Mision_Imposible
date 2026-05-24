@@ -221,6 +221,8 @@ create table nuevaclientes as
 select * 
 from clientes;
 
+SET SQL_SAFE_UPDATES = 0;
+
 update nuevaproductos
 set precio = precio * 1.05
 where idfab = 'aci';
@@ -301,15 +303,99 @@ select * from nuevaoficinas where cod_oficina = 12;
 
 /*Subsconsultas*/
 
+use mydb;
+
+select nombre
+from clientes 
+where representante_numemp = (
+select numemp
+from empleados
+where nombre = 'Alvaro Jaumes'
+);
+
+select numemp, nombre, cod_oficina
+from empleados
+where cod_oficina in (
+select cod_oficina
+from oficinas
+where ventas > objetivo
+);
 
 
-
-
-
-
-
-
-
-
-
-
+select *
+from empleados
+where cod_oficina not in (
+select cod_oficina
+from oficinas
+where director = 108
+ );
+ 
+ select *
+ from nominas
+ where numNomina in  (
+ select nomina_numNomina
+ from gestionada
+ where director_numemp = (
+ select numemp
+ from empleados
+ where nombre = 'Luis Antonio'
+ ));
+ 
+ select idfab, idproducto, descripcion
+ from productos
+ where (idproducto, idfab)not in (
+ select id_producto, idfab
+ from pedidos
+ where importe >= 25000
+ );
+ 
+ select *
+ from clientes 
+ where representante_numemp = (
+ select numemp
+ from empleados
+ where nombre = 'Juan Rovira' 
+ ) 
+ and numclie not in (
+ select numclie
+ from pedidos
+ where importe > 3000
+ );
+ 
+ select *
+ from oficinas
+ where cod_oficina in  (
+ select e.cod_oficina
+ from empleados e inner join oficinas o on o.cod_oficina = e.cod_oficina
+ where o.ventas > o.objetivo * 0.55
+ );
+ 
+ select *
+ from nominas
+ where numemp in (
+ select numemp
+ from empleados
+ where cod_oficina in (
+ select cod_oficina
+ from oficinas
+ where region = 'Oeste'
+ ));
+ 
+ 
+ 
+ /*Subconsultas group by*/
+ 
+ select cod_oficina, count(*) as asignados
+ from empleados
+ group by cod_oficina;
+ 
+ select e.numemp, e.nombre, p.numclie, sum(p.importe) as importe_vendido
+ from empleados e inner join pedidos p on e.numemp = p.numemp
+ group by e.numemp, e.nombre, p.numclie;
+ 
+ select idfab, count(*) as cantidad_productos, avg(precio) as media
+ from productos
+ group by idfab;
+ 
+ 
+ 

@@ -204,41 +204,107 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 select * from empleados;
 
 describe empleados;
+
 alter table empleados 
 add tipo varchar(20);
 
 create table representantes(
 numemp int primary key,
-contrato date,
-edad int,
-nombre varchar(50),
-titulo varchar(50),
-tipo varchar(50) ,
 cuota decimal(10,2),
 ventas decimal(10,2)
 );
 
 
 create table directores (
-numemp int primary key,
-contrato date,
-edad int,
-nombre varchar(50),
-titulo varchar(50),
-tipo varchar(50) 
+numemp int primary key
 );
+
+update empleados
+set tipo = 'director'
+where numemp in (
+select director
+from oficinas
+);
+
+update empleados
+set tipo = 'representante'
+where tipo is null;
+
+insert into representantes (numemp, cuota, ventas) 
+select numemp, cuota, ventas
+from empleados e 
+where tipo = 'representante';
+
+select * from directores;
+
+insert into directores (numemp) 
+select numemp
+from empleados 
+where tipo = 'director';
+
+alter table empleados
+drop column ventas,
+drop column cuota;
+
+select * from empleados;
+
+alter table empleados
+modify tipo varchar(30) not null;
+
+/* Restrictiva   */
+alter table empleados
+add check (tipo in ('representante', 'director'));
+
+select * from representantes;
+
+
+alter table directores
+add constraint fk_directores_numemp
+foreign key (numemp) references empleados(numemp)
+on update cascade on delete restrict;
+
+alter table directores
+drop foreign key fk_directores_numemp
+;
+
+
+alter table representantes 
+add constraint fk_representante_numemp
+foreign key (numemp) references empleados(numemp)
+on update cascade on delete restrict;
+
+
 
 create table nominas (
 numNomina int primary key,
 fechainicio date,
 fechafin date,
-importe decimal(10,2)
+importe decimal(10,2),
+numemp int,
+
+ foreign key (numemp) references empleados(numemp)
 );
 
-alter table nominas
-add constraint fk_nominas_director
-foreign key () references empleados()
-on update cascasde on delete set null;
+SHOW CREATE TABLE nominas;
+
+
+
+create table gestionada (
+director_numemp int ,
+nomina_numNomina int ,
+
+primary key (director_numemp, nomina_numNomina),
+
+foreign key (director_numemp) references directores(numemp)
+on update cascade on delete restrict,
+foreign key (nomina_numNomina) references nominas(numNomina)
+on update cascade on delete restrict
+);
+
+
+
+
+
 
 
 
