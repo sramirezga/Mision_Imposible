@@ -1,0 +1,21 @@
+<!ELEMENT website (info,movies)>
+<!ELEMENT info (name, logo, email+)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT logo EMPTY>
+<!ELEMENT email (#PCDATA)>
+<!ELEMENT movies (category)+>
+<!ELEMENT category (movie)+>
+<!ELEMENT movie (isbn, title, poster, score, directors, actors)>
+<!ELEMENT isbn (#PCDATA)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT poster (#PCDATA)>
+<!ELEMENT score (#PCDATA)>
+<!ELEMENT directors (director)+>
+<!ELEMENT director (#PCDATA)>
+<!ELEMENT actors (actor*,actress*)>
+<!ELEMENT actor (#PCDATA)>
+<!ELEMENT actress (#PCDATA)>
+<!ATTLIST logo path CDATA #REQUIRED>
+<!ATTLIST category cat CDATA #REQUIRED>
+<!ATTLIST movie rating CDATA #REQUIRED>
+

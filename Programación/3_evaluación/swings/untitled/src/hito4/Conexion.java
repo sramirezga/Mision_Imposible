@@ -1,6 +1,7 @@
 package hito4;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -53,15 +54,15 @@ public class Conexion {
 
         Conexion c = new Conexion();
 
-        Map<Integer,Integer> aux = c.mapaVisitas();
+        Map<Integer, Integer> aux = c.mapaVisitas();
 
-        for(Map.Entry<Integer,Integer> entry : aux.entrySet()){
+        for (Map.Entry<Integer, Integer> entry : aux.entrySet()) {
 
             int idPintor = entry.getKey();
             int visitas = entry.getValue();
 
 
-            System.out.println( "Pintor: " +  idPintor + "\n Visitas "+ visitas);
+            System.out.println("Pintor: " + idPintor + "\n Visitas " + visitas);
         }
     }
 
@@ -78,19 +79,19 @@ public class Conexion {
                 int idPintor = rs.getInt("idPintor");
 
                 int visitasPorPintura = rs.getInt("visitas");
-               // System.out.println("Visitas pintor " + idPintor + ": " + visitasPorPintura);
+                // System.out.println("Visitas pintor " + idPintor + ": " + visitasPorPintura);
 
 
                 if (!mapa.containsKey(idPintor)) {
                     mapa.put(idPintor, visitasPorPintura);
-                    System.out.println("Pone " + idPintor +" a " + visitasPorPintura);
+                    System.out.println("Pone " + idPintor + " a " + visitasPorPintura);
                 } else {
                     int visitasActuales = mapa.get(idPintor);
 
                     int visitasTotales = visitasActuales + visitasPorPintura;
 
                     mapa.put(idPintor, visitasTotales);
-                //    System.out.println("Actualiza " + idPintor + " a " + visitasTotales);
+                    //    System.out.println("Actualiza " + idPintor + " a " + visitasTotales);
                 }
             }
         } catch (SQLException e) {
@@ -99,28 +100,75 @@ public class Conexion {
         return mapa;
     }
 
-    public void premiarPintor(int idPintor){
+    public void premiarPintor(int idPintor) {
         String sql = "UPDATE pintores " +
                 "SET premiado = 1 " +
                 "WHERE idPintor = ?";
 
-        try{
+        try {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, idPintor);
             ps.executeUpdate();
 
         } catch (SQLException e) {
-
+            e.printStackTrace();
         }
     }
 
-    public List<Pintura> pinturasEliminables(){
-        String sql = "";
+    public List<Pintura> pinturasEliminables() {
+
+        List<Pintura> listaPinturas = new ArrayList<>();
+        String sql = """
+                select tar.idPintura, tar.titulo, tar.fecha, tar.visitas, tar.idPintor as pintor_en_pinturas,
+                tor.idPintor as pintor_en_pintor, tor.nombre, tor.premiado
+                from pinturas tar inner join pintores tor 
+                on tar.idPintor = tor.idPintor
+                where tar.visitas = 0 and tor.premiado = 0
+                """;
+
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                Pintor pintor = new Pintor(
+                        rs.getInt("pintor_en_pintor"),
+                        rs.getString("nombre"),
+                        rs.getBoolean("premiado")
+                );
+
+                listaPinturas.add(new Pintura(
+                        rs.getInt("idPintura"),
+                        rs.getString("titulo"),
+                        rs.getDate("fecha"),
+                        rs.getString("visitas"),
+                        rs.getInt("pintor_en_pinturas"),
+                        pintor
+                ));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
 
-
+        return listaPinturas;
     }
 
+    public void eliminarPintura(int idPintura) {
+        String sql = "delete from pinturas where idPintura = ?";
+
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, idPintura);
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
 
 }

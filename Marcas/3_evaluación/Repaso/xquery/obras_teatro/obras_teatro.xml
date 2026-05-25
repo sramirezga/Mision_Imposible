@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<obras_teatro>
+  <obra id="obra1">
+    <titulo>El color del cielo</titulo>
+    <detalles idioma="castellano">Comedia</detalles>
+    <precio>26</precio>
+    <personajes>1</personajes>
+    <fecha>2019/07/25</fecha>
+    <director>Luisa Loidi</director>
+    <premios>2</premios>
+  </obra>
+  <obra id="obra2">
+    <titulo>La veleta</titulo>
+    <detalles idioma="castellano">Infantil</detalles>
+    <precio>20</precio>
+    <personajes>3</personajes>
+    <fecha>2019/12/14</fecha>
+    <director>Peio Perez</director>
+    <premios>1</premios>
+  </obra>
+  <obra id="obra3">
+    <titulo>Paseo por el mar</titulo>
+    <detalles idioma="euskera">Comedia</detalles>
+    <precio>30</precio>
+    <personajes>5</personajes>
+    <fecha>2019/07/05</fecha>
+    <director>Peio Perez</director>
+    <premios>2</premios>
+  </obra>
+  <obra id="obra4">
+    <titulo>Colores</titulo>
+    <detalles idioma="ingles">Al aire libre</detalles>
+    <precio>24</precio>
+    <personajes>2</personajes>
+    <fecha>2019/07/12</fecha>
+    <director>Peio Perez</director>
+    <premios>3</premios>
+  </obra>
+  <obra id="obra5">
+    <titulo>Primer capítulo</titulo>
+    <detalles idioma="euskera">Infantil</detalles>
+    <precio>15</precio>
+    <personajes>3</personajes>
+    <fecha>2019/08/24</fecha>
+    <director>Rosa Gonzalez</director>
+    <premios>1</premios>
+  </obra>
+  <obra id="obra6">
+    <titulo>Tiempos difíciles</titulo>
+    <detalles idioma="castellano">Comedia</detalles>
+    <precio>25</precio>
+    <personajes>2</personajes>
+    <fecha>2019/09/04</fecha>
+    <director>Peio Perez</director>
+    <premios>4</premios>
+  </obra>
+</obras_teatro>

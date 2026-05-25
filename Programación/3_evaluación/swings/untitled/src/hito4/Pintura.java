@@ -30,6 +30,10 @@ public class Pintura {
         return archivo;
     }
 
+    public String getTitulo() {
+        return titulo;
+    }
+
     //To Sting
     @Override
     public String toString(){

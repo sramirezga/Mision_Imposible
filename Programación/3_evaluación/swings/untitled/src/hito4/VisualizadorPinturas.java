@@ -319,19 +319,19 @@ public class VisualizadorPinturas extends JFrame implements ActionListener {
                 String visitasMinimas = JOptionPane.showInputDialog(null, "Número de visitas para ganer premio ", "Número de visitas", JOptionPane.QUESTION_MESSAGE);
 
 
-                if (visitasMinimas != null && !visitasMinimas.trim().isEmpty()){
+                if (visitasMinimas != null && !visitasMinimas.trim().isEmpty()) {
 
                     int visitasParaPremiar = Integer.parseInt(visitasMinimas);
-                   // System.out.println(visitas);
+                    // System.out.println(visitas);
 
                     Map<Integer, Integer> aux = conexion.mapaVisitas();
 
-                    for(Map.Entry<Integer,Integer> entry : aux.entrySet()){
+                    for (Map.Entry<Integer, Integer> entry : aux.entrySet()) {
 
-                       int visitasTotalesPintor = entry.getValue();
+                        int visitasTotalesPintor = entry.getValue();
 
 
-                        if (visitasTotalesPintor >= visitasParaPremiar){
+                        if (visitasTotalesPintor >= visitasParaPremiar) {
                             conexion.premiarPintor(entry.getKey());
                             System.out.println("Pintor con el id " + entry.getKey() + " Actualizado");
                         }
@@ -349,9 +349,10 @@ public class VisualizadorPinturas extends JFrame implements ActionListener {
     }
 
     public JPanel panelBotonesDer() {
-                JPanel der = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        JPanel der = new JPanel(new FlowLayout(FlowLayout.CENTER));
 
         eliminar = new JButton("Eliminar");
+        eliminar.addActionListener(new eliminarLister());
 
         //ADD
         der.add(eliminar);
@@ -360,12 +361,26 @@ public class VisualizadorPinturas extends JFrame implements ActionListener {
     }
 
 
+    class eliminarLister implements ActionListener {
+
+        public void actionPerformed(ActionEvent e) {
+            List<Pintura> pinnturasEliminables = conexion.pinturasEliminables();
+
+            for (Pintura pin : pinnturasEliminables) {
+                int resp = JOptionPane.showConfirmDialog(null, "Quieres eliminar la " + pin.getTitulo(),
+                        "Eliminar pintura", JOptionPane.YES_NO_OPTION);
+
+                if (resp == JOptionPane.YES_OPTION){
+                    conexion.eliminarPintura(pin.getIdPintura());
+                }
+            }
+        }
+    }
 
 
     //Main
     public static void main(String[] args) {
         VisualizadorPinturas v = new VisualizadorPinturas();
     }
-
 
 }
