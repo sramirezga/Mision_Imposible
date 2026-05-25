@@ -204,6 +204,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 select * from empleados;
 
 describe empleados;
+use mydb;
 
 alter table empleados 
 add tipo varchar(20);

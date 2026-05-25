@@ -385,17 +385,70 @@ where director = 108
  
  /*Subconsultas group by*/
  
- select cod_oficina, count(*) as asignados
+ 
+ 
+ select cod_oficina as numero_oficina , count(*) as asignados
  from empleados
  group by cod_oficina;
  
- select e.numemp, e.nombre, p.numclie, sum(p.importe) as importe_vendido
+   
+ select e.numemp as numero_empleado, e.nombre, sum(p.importe) , p.numclie
  from empleados e inner join pedidos p on e.numemp = p.numemp
- group by e.numemp, e.nombre, p.numclie;
+group by e.numemp, p.numclie, e.nombre;
  
- select idfab, count(*) as cantidad_productos, avg(precio) as media
+ select idfab, count(*) as cantidad_de_productos, avg(precio) media_del_precio
  from productos
  group by idfab;
  
+ select numemp, sum(importe) as pedidos_mayores_30000, avg(importe) as importe_medio
+ from pedidos
+ group by numemp
+ having sum(importe) > 30000;
+ 
+ 
+select descripcion, precio, existencias, sum(pe.cantidad)
+ from productos p inner join pedidos pe on p.idproducto = pe.id_producto and p.idfab = pe.idfab
+ group by p.idproducto, p.idfab
+ having sum(pe.cantidad) > existencias * 0.75
+ order by sum(pe.cantidad) asc;
+ 
+ 
+ select count(idproducto)
+ from clientes c inner join pedidos p on c.numclie = p.numclie
+ group by c.numclie 
+ having
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ /*Subconsultas update and delete*/
+ 
+ update productos
+ set existencias  = existencias -
+ where (idproducto, idfab) = (
+ 
+ );
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
  
  
