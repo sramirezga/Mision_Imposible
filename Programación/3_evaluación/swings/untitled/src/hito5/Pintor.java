@@ -1,4 +1,4 @@
-package hito4;
+package hito5;
 
 public class Pintor {
     //Atributos

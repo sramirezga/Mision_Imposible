@@ -3,9 +3,9 @@ UPDATEVERSION = 12.3
 CHECKUPDATES = false
 
 # Paths
-INPUTPATH = C:/Users/ssaul/Downloads/examenSaul/examenSaul/Ejercicios/Xquery/Ej1/cinema.xml
+INPUTPATH = C:/Users/ik012982i9/Desktop/Mision imposible/Marcas/3_evaluación/Repaso/xquery/obras_teatro/obras_teatro.xml
 DATAPATH = C:\TercerTrimestre\Lenguaje Marcas\Tercer\basex\
-WORKPATH = C:/Users/ssaul/Downloads/examenSaul/examenSaul/Ejercicios/Xquery/Ej2/
+WORKPATH = C:/Users/ik012982i9/Desktop/Mision imposible/Marcas/3_evaluación/Repaso/xquery/obras_teatro/
 PROJECTPATH = C:/TercerTrimestre/Lenguaje Marcas/Tercer/basex/
 
 # Layout
@@ -20,11 +20,11 @@ COLORBLUE = 7
 
 # Windows
 VIEWS = H V editor text - V H folder map plot - H info table tree explore - - - 
-GUISIZE0 = 781
-GUISIZE1 = 822
-GUILOC0 = -6
+GUISIZE0 = 1206
+GUISIZE1 = 1039
+GUILOC0 = 721
 GUILOC1 = 0
-MAXSTATE = true
+MAXSTATE = false
 SHOWBUTTONS = true
 SHOWINPUT = true
 SHOWSTATUS = true
@@ -66,7 +66,7 @@ SHOWHIDDEN = false
 SEARCHMODE = 0
 FILTERRT = false
 EXECRT = true
-DBNAME = cinema
+DBNAME = obras_teatro
 LASTINSERT = 1
 
 # Visualizations
@@ -92,25 +92,28 @@ SEARCH = 0
 XQUERY = 0
 
 # Files
-EDITOR = 7
-EDITOR1 = C:/Users/ssaul/Downloads/examenSaul/examenSaul/Ejercicios/Xquery/Ej2/cine2.xq
-EDITOR2 = C:/Users/ssaul/Downloads/examenSaul/examenSaul/Ejercicios/Xquery/Ej1/cine.xq
-EDITOR3 = C:/Users/ssaul/Downloads/examenSaul/examenSaul/Ejercicios/Xquery/Ej3/cine3.xq
-EDITOR4 = C:/TercerTrimestre/Lenguaje Marcas/Tercer/XML-XQuery/enterprises/Ej2/enterprises.xq
-EDITOR5 = C:/TercerTrimestre/Lenguaje Marcas/Tercer/XML-XQuery/enterprises/Ej1/enterprises.xq
-EDITOR6 = C:/TercerTrimestre/Lenguaje Marcas/Tercer/XML-XQuery/projects/ej2/project.xq
-EDITOR7 = C:/TercerTrimestre/Lenguaje Marcas/Tercer/XML-XQuery/enterprises/Ej3/enterprises.xq
-INPUTS = 6
-INPUTS1 = C:/Users/ssaul/Downloads/examenSaul/examenSaul/Ejercicios/Xquery/Ej1/cinema.xml
-INPUTS2 = C:/Users/ssaul/Downloads/Marcas/XML-XQuery/enterprises/Ej1/enterprises.xml
-INPUTS3 = C:/TercerTrimestre/Lenguaje Marcas/Tercer/XML-XQuery/projects/ej1/proyect.xq
-INPUTS4 = C:/TercerTrimestre/Lenguaje Marcas/Tercer/XML-XQuery/projects/projects.xml
-INPUTS5 = C:/TercerTrimestre/Lenguaje Marcas/Tercer/XML-XQuery/enterprises/enterprises.xml
-INPUTS6 = C:/TercerTrimestre/Lenguaje Marcas/Tercer/XML-XQuery/enterprises/
-OPEN = 3
-OPEN1 = C:/Users/ssaul/Downloads/examenSaul/examenSaul/Ejercicios/Xquery/Ej1/cine.xq
-OPEN2 = C:/Users/ssaul/Downloads/examenSaul/examenSaul/Ejercicios/Xquery/Ej2/cine2.xq
-OPEN3 = C:/Users/ssaul/Downloads/examenSaul/examenSaul/Ejercicios/Xquery/Ej3/cine3.xq
+EDITOR = 10
+EDITOR1 = C:/Users/ik012982i9/Desktop/Mision imposible/Marcas/3_evaluación/Repaso/xquery/obras_teatro/1.2
+EDITOR2 = C:/Users/ik012982i9/Desktop/Mision imposible/Marcas/3_evaluación/Repaso/xquery/obras_teatro/8.xq
+EDITOR3 = C:/Users/ik012982i9/Desktop/Mision imposible/Marcas/3_evaluación/Repaso/xquery/obras_teatro/7.xq
+EDITOR4 = C:/Users/ik012982i9/Desktop/Mision imposible/Marcas/3_evaluación/Repaso/xquery/obras_teatro/6.xq
+EDITOR5 = C:/Users/ik012982i9/Desktop/Mision imposible/Marcas/3_evaluación/Repaso/xquery/obras_teatro/5.xq
+EDITOR6 = C:/Users/ik012982i9/Desktop/Mision imposible/Marcas/3_evaluación/Repaso/xquery/obras_teatro/4.xq
+EDITOR7 = C:/Users/ik012982i9/Desktop/Mision imposible/Marcas/3_evaluación/Repaso/xquery/obras_teatro/obras3.xq
+EDITOR8 = C:/Users/ik012982i9/Desktop/Mision imposible/Marcas/3_evaluación/Repaso/xquery/obras_teatro/obras2.xq
+EDITOR9 = C:/Users/ik012982i9/Desktop/Mision imposible/Marcas/3_evaluación/Repaso/xquery/obras_teatro/obras_teatro.xml
+EDITOR10 = C:/Users/ik012982i9/Desktop/Mision imposible/Marcas/3_evaluación/Repaso/xquery/obras_teatro/obras.xq
+INPUTS = 7
+INPUTS1 = C:/Users/ik012982i9/Desktop/Mision imposible/Marcas/3_evaluación/Repaso/xquery/obras_teatro/obras_teatro.xml
+INPUTS2 = C:/Users/ssaul/Downloads/examenSaul/examenSaul/Ejercicios/Xquery/Ej1/cinema.xml
+INPUTS3 = C:/Users/ssaul/Downloads/Marcas/XML-XQuery/enterprises/Ej1/enterprises.xml
+INPUTS4 = C:/TercerTrimestre/Lenguaje Marcas/Tercer/XML-XQuery/projects/ej1/proyect.xq
+INPUTS5 = C:/TercerTrimestre/Lenguaje Marcas/Tercer/XML-XQuery/projects/projects.xml
+INPUTS6 = C:/TercerTrimestre/Lenguaje Marcas/Tercer/XML-XQuery/enterprises/enterprises.xml
+INPUTS7 = C:/TercerTrimestre/Lenguaje Marcas/Tercer/XML-XQuery/enterprises/
+OPEN = 2
+OPEN1 = C:/Users/ik012982i9/Desktop/Mision imposible/Marcas/3_evaluación/Repaso/xquery/obras_teatro/obras_teatro.xml
+OPEN2 = C:/Users/ik012982i9/Desktop/Mision imposible/Marcas/3_evaluación/Repaso/xquery/obras_teatro/8.xq
 PROJECTS = 1
 PROJECTS1 = C:/TercerTrimestre/Lenguaje Marcas/Tercer/basex/
 PROJFILES = 0

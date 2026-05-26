@@ -1,0 +1,4 @@
+for $obra in doc("obras_teatro.xml")/obras_teatro/obra
+where $obra/personajes = 2
+return
+data($obra/titulo)

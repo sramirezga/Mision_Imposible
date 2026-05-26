@@ -8,27 +8,49 @@ public class Ej1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        double promedio = 0;
 
-        for (int i = 1; i < 3; i++) {
-            System.out.println("Introduce el código del estudiante " + i);
-            int n = sc.nextInt();
+        // System.out.println("Introduce el codigo de los estudiantes");
 
-            int min = Integer.MAX_VALUE;
+        double promedio = 0.0;
+        int suma = 0;
+        int contador = 0;
+
+        for (int i = 1; i <= 3; i++) {
+            System.out.println("Introduce el codigo de los estudiantes " + i);
+            int codigo = sc.nextInt();
+
+            int minima = 11;
             int max = -1;
 
-            for (int j = 1; j < 3; j++) {
-                System.out.println("Calificación de la asignatura " + j);
+            for (int j = 1; j <= 2; j++) {
+                System.out.println("Introduce calificacion de la asignatura " + j);
                 int calificacion = sc.nextInt();
 
-                if (calificacion < min) {
-                    min = calificacion;
+                //A
+                if (minima > calificacion) {
+                    minima = calificacion;
                 }
 
-                if (calificacion > max) {
-
+                if (max < calificacion) {
+                    max = calificacion;
                 }
+
+                //B
+                if (j == 1) {
+                    suma += calificacion;
+                }
+
+
             }
+
+            System.out.println("Califiación minima del estudiante " + i + " = " + minima);
+            System.out.println("Califiación maxima del estudiante " + i + " = " + max);
+
+
         }
+        promedio = (double) suma / 3;
+        System.out.println("Calificacion promedio de la primera asignatura del todos los estudiantes " + promedio);
+
+
     }
 }

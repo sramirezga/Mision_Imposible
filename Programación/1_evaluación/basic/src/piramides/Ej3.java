@@ -137,6 +137,33 @@ public class Ej3 {
         } */
 
 
+        for(int fila = 1; fila <= n; fila++){
+
+            for (int espa = n; espa > fila ; espa--){
+                System.out.print("  ");
+            }
+
+            for (int estr = 1; estr <= fila * 2 -1; estr++){
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+
+        for (int fila = 1; fila < n; fila++){
+
+
+            for (int espa = 1; espa <= fila; espa++) {
+                System.out.print("  ");
+            }
+
+            for (int estr = n; estr >= fila * 2 - 1; estr--){
+                System.out.print("* ");
+            }
+            System.out.println();
+
+        }
+
+
 
 
 

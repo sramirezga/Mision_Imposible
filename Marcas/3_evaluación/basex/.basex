@@ -7,7 +7,6 @@ LANG = English
 FAIRLOCK = false
 CACHETIMEOUT = 3600
 WRITESTORE = true
-CACHEMAX = 65536
 
 # Client/Server Architecture
 HOST = localhost
