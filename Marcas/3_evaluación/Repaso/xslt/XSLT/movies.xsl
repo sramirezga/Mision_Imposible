@@ -8,20 +8,21 @@
         <link rel="stylesheet" href="style.css"></link>
       </head>
       <body>
-
-        <h1></h1>
-
-        <img src="{info/logo/@path}" />
+   <div id="padre"> 
+        <img src="{info/logo/@path}" id="logo" />
         <h2>
           <xsl:value-of select="info/name" />
         </h2>
         <p>
-          <xsl:value-of select="info/email" />
-        </p>
+          <a href="">
+<xsl:value-of select="info/email" />
+
+          </a>
+                  </p>
         <table>
           <xsl:for-each select="movies/category">
             <tr>
-              <td colspan="3">
+              <td colspan="3" class="c">
                 <xsl:value-of select="@cat" />
               </td>
             </tr>
@@ -76,6 +77,7 @@
 
           </xsl:for-each>
         </table>
+         </div>
       </body>
     </html>
   </xsl:template>

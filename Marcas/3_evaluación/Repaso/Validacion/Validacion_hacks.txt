@@ -1,0 +1,25 @@
+dtd:
+
+?: no es requerido
++ mas elementos
+
+#required
+#implied
+
+
+
+
+attlist
+
+(familiqar | hfdjshdjk)
+elemento:
+
+
+xsd:
+
+elemento:
+
+minOccurs y maxOccurs
+
+atributo: use="required"  use="optional"
+

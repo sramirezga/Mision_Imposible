@@ -6,7 +6,7 @@
 <!ELEMENT curso_academico (#PCDATA)>
 <!ELEMENT domicilios (domicilio+)>
 <!ELEMENT domicilio (nombre)>
-<!ATTLIST domicilio tipo CDATA #REQUIRED>
+<!ATTLIST domicilio tipo (familiar|habitual) #REQUIRED>
 <!ELEMENT pago (tipo_matricula)>
 <!ELEMENT tipo_matricula (#PCDATA)>
 

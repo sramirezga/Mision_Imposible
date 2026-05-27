@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
-<!DOCTYPE matricula SYSTEM "matricula.dtd">
-<matricula>
+<!--<!DOCTYPE matricula SYSTEM "matricula.dtd"> -->
+
+<matricula xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="matricula.xsd">
    <personal>
         <dni>99223366M</dni>
         <nombre>Juan Pardo Martín</nombre>
@@ -16,6 +17,7 @@
                  <nombre>C/ Secundaria nº2</nombre>
           </domicilio>
           
+                     
           </domicilios>
       </personal>
       <pago>

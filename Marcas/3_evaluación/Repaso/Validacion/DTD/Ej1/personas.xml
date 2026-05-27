@@ -1,10 +1,13 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
-<!DOCTYPE lista_personas SYSTEM "personas.dtd">
-<lista_personas>
+<!-- <!DOCTYPE lista_personas SYSTEM "personas.dtd"> -->
+
+
+<lista_personas xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="personas.xsd">
      <persona>
          <nombre>Antonio Moreno</nombre>
-        <fecha_nacimiento>27-11-2008</fecha_nacimiento>
+       <fecha_nacimiento>12/12/2000</fecha_nacimiento>
          <sexo>Varón</sexo>
     </persona>
+    
 </lista_personas>
