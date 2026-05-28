@@ -412,16 +412,18 @@ select descripcion, precio, existencias, sum(pe.cantidad)
  having sum(pe.cantidad) > existencias * 0.75
  order by sum(pe.cantidad) asc;
  
+ use mydb;
  
- select count(idproducto)
+ select c.numclie, limite_credito - sum(p.importe) as dinero_restante
  from clientes c inner join pedidos p on c.numclie = p.numclie
- group by c.numclie 
- having
+ group by c.numclie;
+
  
  
  
  
- 
+ /*debox gestionar servivios en la nube 
+ boxelar hacer muñecos de videojuegos en 3d en cubos paisajes mini videojuegos */
  
  
  
@@ -430,22 +432,58 @@ select descripcion, precio, existencias, sum(pe.cantidad)
  
  /*Subconsultas update and delete*/
  
- update productos
- set existencias  = existencias -
- where (idproducto, idfab) = (
  
+ 
+ update productos pro
+ set existencias = existencias - (
+ select sum(pe.cantidad) as suma_de_pedidos
+ from pedidos pe
+ where pe.id_producto = pro.idproducto
+ and pe.idfab = pro.idfab
+ );
+
+ 
+ delete from empleados e
+ where e.edad > 50 and e.numemp in (
+ select p.numemp
+ from pedidos p
+group by p.numemp
+having sum(p.cantidad) < 21
+ );
+ 
+ update nuevaproductos pron
+ set precio =     (
+ select precio
+ from productos pro
+where pro.idproducto = pron.idproducto
+and pro.idfab = pron.idfab
+ );
+ 
+ insert into nuevapedidos 
+ select * 
+ from pedidos p 
+ where p.idpedido not in (
+ select pn.idpedido
+ from nuevapedidios pn
  );
  
  
+ update nominas
+ set importe = importe + 100
+ where numemp = (
+ select numemp
+ from empleados
+ where nombre = 'Antonio Viguer');
  
- 
- 
- 
- 
- 
- 
- 
- 
+ delete from nominas
+ where numemp in (
+ select numemp 
+ from empleados
+ where edad > 60 and cod_oficina in (
+ select cod_oficina
+ from oficinas
+ where region = 'oeste'
+ ));
  
  
  

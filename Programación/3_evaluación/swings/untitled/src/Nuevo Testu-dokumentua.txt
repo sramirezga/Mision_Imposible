@@ -1,0 +1,53 @@
+
+DROP DATABASE IF EXISTS pizzeria;
+CREATE DATABASE pizzeria;
+USE pizzeria;
+
+CREATE TABLE clientes (
+    id_cliente VARCHAR(10) PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE masas (
+    id_masa VARCHAR(10) PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    precio DECIMAL(6,2) NOT NULL
+);
+
+INSERT INTO masas (id_masa, nombre, precio) VALUES
+('MASA01', 'Original', 8.00),
+('MASA02', 'Fina', 8.50),
+('MASA03', 'De caserio', 9.00),
+('MASA04', 'Rellena', 10.00);
+
+CREATE TABLE ingredientes (
+    id_ingrediente VARCHAR(10) PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    precio DECIMAL(6,2) NOT NULL
+);
+
+INSERT INTO ingredientes (id_ingrediente, nombre, precio) VALUES
+('ING01', 'Extra de queso', 1.00),
+('ING02', 'Jamón cocido', 1.20),
+('ING03', 'Champiñones', 0.80),
+('ING04', 'Cebolla', 0.50),
+('ING05', 'Pollo', 1.50),
+('ING06', 'Pimiento rojo', 0.70);
+
+CREATE TABLE pedidos (
+    id_pedido VARCHAR(10) PRIMARY KEY,
+    id_cliente VARCHAR(10) NOT NULL,
+    id_masa VARCHAR(10) NOT NULL,
+    ingredientes TEXT,
+    total DECIMAL(6,2) NOT NULL,
+    para_llevar BIT NOT NULL,
+    fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente),
+    FOREIGN KEY (id_masa) REFERENCES masas(id_masa)
+);
+
+SELECT * FROM clientes;
+SELECT * FROM masas;
+SELECT * FROM ingredientes;
+SELECT * FROM pedidos;
