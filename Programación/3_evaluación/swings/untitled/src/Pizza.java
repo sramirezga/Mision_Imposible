@@ -11,8 +11,9 @@ public class Pizza extends JFrame implements ActionListener {
 
     //Izzquierda
     private JTextField input;
-    private JPasswordField pass;
+    //private JPasswordField pass;
     private JComboBox<String> combo;
+    private DefaultComboBoxModel<String> modeloCombo;
     private JLabel labelImg;
     private JButton pedido;
 
@@ -58,12 +59,25 @@ public class Pizza extends JFrame implements ActionListener {
         input.setMaximumSize(new Dimension(450, 25));
 
 
-        pass = new JPasswordField();
-        pass.setMaximumSize(new Dimension(450, 25));
+        String[] opciones = {
+                "Métalico",
+                "Tarjeta",
+                "Bizum"
+        };
+
+
+
+        modeloCombo = new DefaultComboBoxModel<>(opciones);
+
+        combo = new JComboBox<>(opciones);
+
+       /* for (String o : opciones) {
+            combo.addItem(o);
+        } */
 
 
         JLabel labelPago = new JLabel("Seleciiona el método de pago:");
-        combo = new JComboBox<>();
+
 
         //Ruta
         ImageIcon icon = new ImageIcon("Img/pizza.jpg");
@@ -80,7 +94,7 @@ public class Pizza extends JFrame implements ActionListener {
         izq.add(Box.createVerticalStrut(15));
         izq.add(input);
         izq.add(Box.createVerticalStrut(15));
-        izq.add(pass);
+        izq.add(combo);
         izq.add(Box.createVerticalStrut(15));
         izq.add(labelPago);
         izq.add(Box.createVerticalStrut(15));
