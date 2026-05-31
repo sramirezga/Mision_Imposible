@@ -13,91 +13,109 @@
 
 <body>
 
-    <h1>Formulario de inscripción</h1>
+    <!-- Formulario -->
+    <div id="formulario">
+        <h1>Formulario de inscripción</h1>
 
-    <table border="1">
-        <tr>
-            <td>
-                <label for="nombre_apellido">Nombre y Apellido</label>
-            </td>
-            <td>
-                <input type="text" name="Nombre_apellido" id="nombre_apellido">
-            </td>
-        </tr>
+        <table border="1">
+            <tr>
+                <td>
+                    <label for="nombre_apellido">Nombre y Apellido</label>
+                </td>
+                <td>
+                    <input type="text" name="Nombre_apellido" id="nombre_apellido">
+                </td>
+            </tr>
 
-        <tr>
-            <td>
-                <label for="telefono">Télefono</label>
-            </td>
-            <td>
-                <input type="text" name="Télefono" id="telefono">
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    <label for="telefono">Télefono</label>
+                </td>
+                <td>
+                    <input type="text" name="Télefono" id="telefono">
+                </td>
+            </tr>
 
-        <tr>
-            <td>
-                <span>Vehículo</span>
-            </td>
-            <td>
-                <label for="coche">Coche</label>
-                <input type="radio" name="vehiculo" id="coche" value="coche">
-                <label for="moto">Moto</label>
-                <input type="radio" name="vehiculo" id="moto" value="moto">
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    <span>Vehículo</span>
+                </td>
+                <td>
+                    <label for="coche">Coche</label>
+                    <input type="radio" name="vehiculo" id="coche" value="coche">
+                    <label for="moto">Moto</label>
+                    <input type="radio" name="vehiculo" id="moto" value="moto">
+                </td>
+            </tr>
 
-        <tr>
-            <td>
-                <label for="tipo_examen">Tipo de examen</label>
-            </td>
+            <tr>
+                <td>
+                    <label for="tipo_examen">Tipo de examen</label>
+                </td>
 
-            <td>
-                <input list="tipo_examenes" id="tipo_examen" autocomplete="off">
-                <datalist id="tipo_examenes">
-                    <option value="Teórico">
-                    <option value="Pista">
-                    <option value="Carretera">
-                </datalist>
-            </td>
-        </tr>
-
-
-        <tr>
-            <td>
-                <label>Disponibilidad</label>
-            </td>
-
-            <td>
-                <label>Lunes</label><input type="checkbox" name="lunes" value="Lunes">
-                <label>Martes</label><input type="checkbox" name="Martes" value="Martes">
-                <label>Miércoles</label><input type="checkbox" name="Miercoles" value="Miércoles">
-                <label>Jueves</label><input type="checkbox" name="Jueves" value="Jueves">
-                <label>Viernes</label><input type="checkbox" name="Viernes" value="Viernes">
-            </td>
-        </tr>
-
-        <tr>
-            <td><label>Notas:</label></td>
-            <td>
-                <textarea id="notas" cols="50" rows="3"></textarea>
-            </td>
-        </tr>
-
-        <tr>
-            <td colspan="2">
-                <input type="button" value="Agregar" onclick="agregar()">
-                <input type="button" value="Resetear" onclick="limpiar()">
-            </td>
-        </tr>
+                <td>
+                    <input list="tipo_examenes" id="tipo_examen" autocomplete="off">
+                    <datalist id="tipo_examenes">
+                        <option value="Teórico">
+                        <option value="Pista">
+                        <option value="Carretera">
+                    </datalist>
+                </td>
+            </tr>
 
 
+            <tr>
+                <td>
+                    <label>Disponibilidad</label>
+                </td>
 
+                <td>
+                    <label>Lunes</label><input type="checkbox" name="disponibilidad" value="Lunes">
+                    <label>Martes</label><input type="checkbox" name="disponibilidad" value="Martes">
+                    <label>Miércoles</label><input type="checkbox" name="disponibilidad" value="Miércoles">
+                    <label>Jueves</label><input type="checkbox" name="disponibilidad" value="Jueves">
+                    <label>Viernes</label><input type="checkbox" name="disponibilidad" value="Viernes">
+                </td>
+            </tr>
 
-    </table>
+            <tr>
+                <td><label>Notas:</label></td>
+                <td>
+                    <textarea id="notas" cols="50" rows="3"></textarea>
+                </td>
+            </tr>
 
+            <tr>
+                <td colspan="2">
+                    <input type="button" value="Agregar" onclick="agregarUsuario()">
+                    <input type="button" value="Resetear" onclick="limpiar()">
+                </td>
+            </tr>
 
+        </table>
+    </div>
 
+    <!-- Tabla de registros -->
+    <div id="registros">
+        <h1>Lista de usuarios inscritos</h1>
+        <table id="tabla_registros" border="1">
+            <tr>
+                <td class="negrita-center">Nombre y apellido</td>
+                <td class="negrita-center">Teléfono</td>
+                <td class="negrita-center">Vehículo</td>
+                <td class="negrita-center">Tipo examen</td>
+                <td class="negrita-center">Disponibilidad</td>
+                <td class="negrita-center">Notas</td>
+            </tr>
+        </table>
 
+ <div id="centrar-boton">
+
+<button onclick="volver()">Volver</button>
+ </div>
+      
+
+    </div>
 
     <!-- Mis scripts -->
     <script src="js/scripts.js"></script>

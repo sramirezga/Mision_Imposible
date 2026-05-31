@@ -1,21 +1,47 @@
-table{
+table {
 	margin: auto;
 }
-h1{
+
+h1 {
 	text-align: center;
 }
-#div_boton_volver{
- 	text-align: center;
+
+td {
+	padding: 10px;
 }
-td{
-	padding:10px;
+
+
+input[type=button] {
+	margin: 10px;
 }
-input[type=button]{
- 	margin: 10px;
-}
-body{
+
+body {
 	background-color: #f2f2f2;
 }
-#lista{
+
+
+/*Ocultar tabla de registros*/
+#registros {
 	display: none;
+
+}
+
+.negrita-center {
+	font-weight: bold;
+	text-align: center;
+}
+
+#tabla_registros {
+	font-size: 20px;
+	font-family: 'Courier New', Courier, monospace;
+}
+
+button {
+	margin-top: 15px;
+}
+
+#centrar-boton {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
