@@ -2,12 +2,24 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Pizza extends JFrame implements ActionListener {
 
     //Atributos
+
+     /*
+    Bucles
+    Bucles dentro de bucles
+    patrones
+    matrices
+       clase simple
+    * */
 
     //Izzquierda
     private JTextField input;
@@ -15,7 +27,7 @@ public class Pizza extends JFrame implements ActionListener {
     private JComboBox<String> combo;
     private DefaultComboBoxModel<String> modeloCombo;
     private JLabel labelImg;
-    private JButton pedido;
+    private JButton pedido, print;
 
     //Centro
     private ButtonGroup tipoMasa;
@@ -31,7 +43,7 @@ public class Pizza extends JFrame implements ActionListener {
 
         setTitle("Pizza");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(900, 400);
+        setSize(900, 450);
 
         JPanel panelPrincipal = new JPanel(new GridLayout(1, 3));
         setContentPane(panelPrincipal);
@@ -66,7 +78,6 @@ public class Pizza extends JFrame implements ActionListener {
         };
 
 
-
         modeloCombo = new DefaultComboBoxModel<>(opciones);
 
         combo = new JComboBox<>(opciones);
@@ -86,6 +97,47 @@ public class Pizza extends JFrame implements ActionListener {
         labelImg = new JLabel(iconFinal);
 
         pedido = new JButton("Pedido");
+        print = new JButton("Print");
+        print.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                String resp = JOptionPane.showInputDialog(null, "Ingesa el nombre de archivo con su extencion",
+                        "Nombre del archivo", JOptionPane.QUESTION_MESSAGE);
+
+
+                if (!resp.trim().isEmpty()) {
+
+                    try {
+                        PrintWriter pw = new PrintWriter("files/" + resp);
+
+                        Map<String, String[]> map = fabricanteProductos();
+
+                        for (Map.Entry<String, String[]> entry : map.entrySet()) {
+
+                            String nombre = entry.getKey();
+                            String[] productos = entry.getValue();
+
+                            pw.println(nombre);
+                            System.out.println(nombre);
+                            for (int i = 0; i < productos.length; i++) {
+                                pw.println(productos[i]);
+                                System.out.println(productos[i]);
+                            }
+                            pw.println();
+                            System.out.println();
+                        }
+
+                        pw.close();
+                        // System.out.println(pw);
+
+                    } catch (FileNotFoundException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+
+            }
+        });
 
 
         //ADD
@@ -101,6 +153,8 @@ public class Pizza extends JFrame implements ActionListener {
         izq.add(labelImg);
         izq.add(Box.createVerticalStrut(15));
         izq.add(pedido);
+        izq.add(Box.createVerticalStrut(15));
+        izq.add(print);
 
 
         return izq;
@@ -175,6 +229,38 @@ public class Pizza extends JFrame implements ActionListener {
     //Main
     public static void main(String[] args) {
         Pizza p = new Pizza();
+    }
+
+    public static Map<String, String[]> fabricanteProductos() {
+
+        Map<String, String[]> mapa = new HashMap<>();
+
+        //Nombre de fabricantes
+        List<String> nombresFabricantes = new ArrayList<>();
+        nombresFabricantes.add("Samsung");
+        nombresFabricantes.add("Nintendo");
+        nombresFabricantes.add("Logitech");
+
+        //Productos de fabricantes
+        List<String[]> productosFabricantes = new ArrayList<>();
+
+        productosFabricantes.add(new String[]{"Galaxy S26 Ultra", "Galaxy Watch 8", "Galaxy Book 5 Pro"});
+        productosFabricantes.add(new String[]{"Nintendo Switch 2", "Nintendo Switch OLED", "Mario Kart 9"});
+        productosFabricantes.add(new String[]{"Raton MX Master 3S", "Teclado MX Keys S", "Camara web Brio 4K"});
+
+
+        //Llenar mapa
+        for (int i = 0; i < nombresFabricantes.size(); i++) {
+
+            String nombreFab = nombresFabricantes.get(i);
+            String[] productos = productosFabricantes.get(i);
+
+            mapa.put(nombreFab, productos);
+
+        }
+
+
+        return mapa;
     }
 
     @Override
