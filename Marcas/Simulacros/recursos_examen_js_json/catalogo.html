@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Catálogo</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="js/script.js" defer></script>
+</head>
+
+<body onload="cargarInstrumentos()">
+    <div class="zona-verde">
+        <div class="caja">
+            <h1>CATÁLOGO DE INSTRUMENTOS</h1>
+
+            <button id="btnTodos">VER TODOS</button>
+
+            <p>
+                <button id="btnPar" onclick="filtarPar()">FILTRAR POR POSICIÓN PAR</button>
+            </p>
+
+            <p>
+                <label>PRECIO MENOR QUE</label>
+                <input type="number" id="precio">
+                <button id="btnPrecio" onclick="filtarPrecio()">FILTRAR POR PRECIO</button>
+            </p>
+
+            <div id="tablaInstrumentos">
+
+
+               
+
+            </div>
+
+            <button onclick="salir()">SALIR</button>
+        </div>
+    </div>
+</body>
+
+</html>

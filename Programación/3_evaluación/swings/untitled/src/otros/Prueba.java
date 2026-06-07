@@ -1,3 +1,5 @@
+package otros;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -14,7 +16,7 @@ public class Prueba extends JFrame {
     public Prueba() {
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setTitle("Prueba");
+        setTitle("otros.Prueba");
         setSize(500, 500);
 
         JPanel principal = new JPanel(new BorderLayout(20, 20));

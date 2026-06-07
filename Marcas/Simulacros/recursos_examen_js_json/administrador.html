@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Administrador</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body onload="mostrarUsuarios()">
+    <div class="zona-verde">
+        <h1>PÁGINA PARA EL ADMINISTRADOR</h1>
+
+        <div class="fila">
+            <div class="caja">
+                <h2>USUARIOS</h2>
+                <div id="listaUsuarios">
+                </div>
+
+                <input type="number" id="idUsuario" placeholder="Introduce el número">
+                <button onclick="verPerfil()">VER PERFIL</button>
+            </div>
+
+            <div class="caja">
+                <h2>PERFIL DEL USUARIO</h2>
+                <div id="perfilUsuario">
+ 
+
+                </div>
+            </div>
+        </div>
+
+        <button onclick="salir()">SALIR</button>
+    </div>
+</body>
+</html>

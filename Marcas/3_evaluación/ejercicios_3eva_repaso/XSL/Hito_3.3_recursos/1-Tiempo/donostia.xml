@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="tiempo.xsl"?>
+
+
+<day done="16/05/2017 [09:35:00]" month="5" day="16">
+  <forecasts>
+    <forecast period="today" date="16/05/2017">
+      <symbol>
+        <icon>02</icon>
+        <description>
+          <es>Parcialmente nuboso: entre 2/8 y 4/8 de cielo cubierto</es>
+          <eu>Partez hodeitua: zeruaren 2/8etik 4/8era estalita</eu>
+        </description>
+      </symbol>
+      <tempMax>27</tempMax>
+      <description>
+        <es>Brumas matinales. Intervalos de nubes medias y altas; intervalos nubosos durante la segunda, con nubes de evolución. Posibilidad de chubascos débiles a moderados y tormentosos por la tarde-noche. Viento flojo y variable durante la primera mitad del día, con predominio de la componente sur en el interior y de la componente este en el litoral; durante las horas centrales del día girará al noreste en el litoral, por la tarde a componente norte en el interior. Temperaturas máximas sin cambios o en ligero ascenso en el interior, sin cambios o en ligero descenso en el litoral.</es>
+        <eu>Goiz-lanbroa. Egunaren lehenengo partean zerua tarteka hodeitsu egongo da, erdi mailako hodeien eta goi-hodeiekin; bigarrenean tarteka hodeitsu egongo da, bero-hodeiekin. Arratsalde-gau partean zaparrada txiki-ertainak eta trumoitsuak botatzeko probabilitatea txikia da. Egunaren lehenengo partean haize ahula eta aldakorra ibiliko da, barnealdean hego-osagaia nagusi eta kostaldean eki-osagaikoa. Egunaren erdiko orduetan kostaldean haizea ipar-ekialdera aldatuko da, arratsaldean barnealdean ipar-osagaira. Barnealdean tenperatura maximoak aldaketarik ez edo gutxi igoko diraa, kostaldean aldaketarik ez edo gutxi jaitsiko dira.</eu>
+      </description>
+      <tempMin>14</tempMin>
+    </forecast>
+
+    <forecast period="tomorrow" date="17/05/2017">
+      <symbol>
+        <icon>10</icon>
+        <description>
+          <es>Chubascos débiles: precipitación intensa y de corta duración, con cantidades inferiores a 15 mm/h</es>
+          <eu>Zaparrada txikiak: prezipitazio zakarra eta laburra, 15 mm/h-tik behera</eu>
+        </description>
+      </symbol>
+      <tempMax>23</tempMax>
+      <description>
+        <es>Brumas matinales. Intervalos nubosos durante la primera mitad del día, con nubes medias y altas; cielo muy nuboso durante la segunda. Chubascos débiles a moderados y tormentosos por la tarde-noche, con la posibilidad de que localmente sean fuertes. Viento flojo a moderado del sureste por la mañana; por la tarde girará a componente norte. En el litoral viento flojo a moderado de componente norte a partir de la mañana, con rachas fuertes del noroeste por la tarde. Temperaturas mínimas sin cambios, máximas sin cambios en el sur de Álava y en ligero a moderado descenso en la vertiente cantábrica, en el litoral especialmente.</es>
+        <eu>Goiz-lanbroa. Egunaren lehenengo partean zerua tarteka hodeitsu egongo da, erdi mailako hodei eta goi-hodeiekin, bigarrenean oso hodeitsu geratuko da. Arratsalde-gau partean zaparrada txiki-ertainak eta trumoitsuak botako ditu. Zenbait lekutan zaparrada gogorrak izateko probabilitatea txikia da.  Barnealdean hego-ekialdeko haize ahul-bizia ibiliko da, bolada gogor batzuekin; arratsaldean ipar-osagaira aldatuko da. kostaldean goizetik aurrera  ipar-osagaiko haize ahul-bizia ibiliko da, ipar-mendebaldeko bolada gogorrekin arratsaldean. Tenperaturan minimoetan aldaketarik ez. Arabako hegoaldean maximoetan aldaketarik ez eta kantauri isurialdean gutxi edo nahikoa jaitsiko dira, kostaldean bereziki.</eu>
+      </description>
+      <tempMin>15</tempMin>
+    </forecast>
+    
+    <forecast period="next" date="18/05/2017">
+      <symbol>
+        <icon>12</icon>
+        <description>
+          <es>Lluvia débil: precipitación de agua líquida, con cantidades inferiores a 15 mm/h</es>
+          <eu>Euri txikia: ur likidozko prezipitazioa, 15 mm/h-tik behera</eu>
+        </description>
+      </symbol>
+      <tempMax>16</tempMax>
+      <description>
+        <es>Cielo muy nuboso. Chubascos débiles a moderados espcialmente durante la primera mitad del día que irán remitiendo a lo largo de la tarde. Probabilidad de tormentas, especialmente de madrugada y primeras horas. Viento flojo a moderado del norte o del noroeste, con rachas fuertes y algunas muy fuertes durante la mañana en el litoral. Temperaturas mínimas en moderado descenso, máximas en acusado descenso.</es>
+        <eu>Zerua oso hodeitsu egongo da. Zaparrada txiki-ertainak botako ditu, egunaren lehenego partean bereziki. Arratsaldean zehar atertuz joango da. Trumoi-ekaitza izateko probabilitatea handia da, goizaldean eta goizean goiz bereziki. Iparraldeko edo ipar-mendebaldeko haize ahul-bizia ibiliko da, goizean bolada gogorrekin eta oso gogor batzuekin kostaldean. Tenperatura minimoak nahikoa jaitsi eta maximoak asko jaitsiko dira.</eu>
+      </description>
+      <tempMin>13</tempMin>
+    </forecast>
+  </forecasts>
+</day>

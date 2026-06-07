@@ -1,3 +1,5 @@
+package otros;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -41,7 +43,7 @@ public class Pizza extends JFrame implements ActionListener {
     //Constructor
     public Pizza() {
 
-        setTitle("Pizza");
+        setTitle("otros.Pizza");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(900, 450);
 

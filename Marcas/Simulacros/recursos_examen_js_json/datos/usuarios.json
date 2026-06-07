@@ -1,0 +1,28 @@
+[
+
+  {
+    "id": 1,
+    "usuario": "admin",
+    "password": "admin",
+    "avatar": "admin.svg"
+  },
+  {
+    "id": 2,
+    "usuario": "musico1",
+    "password": "pass1",
+    "avatar": "musico1.svg"
+  },
+  {
+    "id": 3,
+    "usuario": "musico2",
+    "password": "pass2",
+    "avatar": "musico2.svg"
+  },
+  {
+    "id": 4,
+    "usuario": "musico3",
+    "password": "pass3",
+    "avatar": "musico3.svg"
+  }
+
+]

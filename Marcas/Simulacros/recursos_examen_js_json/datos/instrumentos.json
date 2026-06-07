@@ -1,0 +1,83 @@
+[
+  {
+    "posicion": 1,
+    "nombre": "guitarra",
+    "imagen": "guitarra.svg",
+    "origen": "España",
+    "precio": 300,
+    "material": "madera",
+    "color": "marrón"
+  },
+  {
+    "posicion": 2,
+    "nombre": "piano",
+    "imagen": "piano.svg",
+    "origen": "Italia",
+    "precio": 30000,
+    "material": "madera",
+    "color": "negro"
+  },
+  {
+    "posicion": 3,
+    "nombre": "flauta",
+    "imagen": "flauta.svg",
+    "origen": "Alemania",
+    "precio": 150,
+    "material": "metal",
+    "color": "plateado"
+  },
+  {
+    "posicion": 4,
+    "nombre": "violín",
+    "imagen": "violin.svg",
+    "origen": "Italia",
+    "precio": 600,
+    "material": "madera",
+    "color": "marrón"
+  },
+  {
+    "posicion": 5,
+    "nombre": "batería",
+    "imagen": "bateria.svg",
+    "origen": "Estados Unidos",
+    "precio": 1200,
+    "material": "varios",
+    "color": "varios"
+  },
+  {
+    "posicion": 6,
+    "nombre": "saxofón",
+    "imagen": "saxofon.svg",
+    "origen": "Bélgica",
+    "precio": 600,
+    "material": "latón",
+    "color": "dorado"
+  },
+  {
+    "posicion": 7,
+    "nombre": "trompeta",
+    "imagen": "trompeta.svg",
+    "origen": "Egipto",
+    "precio": 400,
+    "material": "latón",
+    "color": "dorado"
+  },
+  {
+    "posicion": 8,
+    "nombre": "arpa",
+    "imagen": "arpa.svg",
+    "origen": "Mesopotamia",
+    "precio": 5000,
+    "material": "madera",
+    "color": "marrón"
+  },
+  {
+    "posicion": 9,
+    "nombre": "acordeón",
+    "imagen": "acordeon.svg",
+    "origen": "Austria",
+    "precio": 500,
+    "material": "varios",
+    "color": "varios"
+  }
+]

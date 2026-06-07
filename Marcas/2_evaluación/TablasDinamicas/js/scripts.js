@@ -20,11 +20,9 @@ function crearTabla() {
       for (let j = 0; j < col; j++) {
 
         crearTabla += "<td> <img src='img/" + i + j+".jpg' width='250px' height='250px'> </td> ";
-        
-      }
+              }
 
       crearTabla += "</tr>"
-
     }
 
     crearTabla += "</table>";

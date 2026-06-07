@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE projects SYSTEM "projects.dtd">
+<projects>
+    <project>
+        <project_code>234523</project_code>
+        <title>Information Storage through XML files</title>
+        <start_date>2015-03-15</start_date>
+        <end_date>2015-06-15</end_date>
+        <staff>
+            <employee>
+                <employee_number>3642</employee_number>
+                <name>Urko</name>
+                <surname>Dorronsoro</surname>
+                <field_of_expertise>Information Technologies</field_of_expertise>
+                <department>ICT</department>
+                <email>udorronsoro@zubirimante.com</email>
+            </employee>
+            <employee>
+                <employee_number>5476</employee_number>
+                <name>Pantxito</name>
+                <surname>Pantxikutarra</surname>
+                <department>Design</department>
+            </employee>
+        </staff>
+    </project>
+	 <project>
+        <project_code>43215</project_code>
+        <title>Software Defined Networking</title>
+        <start_date>2014-03-15</start_date>
+        <end_date>2015-02-15</end_date>
+        <staff>
+            <employee>
+                <employee_number>5648</employee_number>
+                <name>Aitor</name>
+                <surname>Etxeberria</surname>
+                <field_of_expertise>Information Technologies</field_of_expertise>
+                <department>ICT</department>
+                <email>aalkorta@zubirimante.com</email>
+            </employee>
+            <employee>
+                <employee_number>1123</employee_number>
+                <name>Pantxita</name>
+                <surname>Pantxikutarra</surname>
+                <department>Design</department>
+            </employee>
+        </staff>
+    </project>
+ <project>
+        <project_code>65743</project_code>
+        <title>Machinery designing</title>
+        <start_date>2012-07-11</start_date>
+        <end_date>2013-12-25</end_date>
+        <staff>
+            <employee>
+                <employee_number>9876</employee_number>
+                <name>Peio</name>
+                <surname>Olaberria</surname>
+                <field_of_expertise>Heavy Tools Management</field_of_expertise>
+                <department>Heavy Machinery</department>
+                <email>polaberria@zubirimante.com</email>
+            </employee>
+            <employee>
+                <employee_number>4792</employee_number>
+                <name>Amagoia</name>
+                <surname>Zubiaurre</surname>
+                <department>Electric facilities</department>
+            </employee>
+        </staff>
+    </project>
+</projects>

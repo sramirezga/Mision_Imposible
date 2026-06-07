@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<CV>
+    <PersonalInfo>
+          <Name>Urko</Name>    
+          <Surname>Dorronsoro Sagasti</Surname>
+          <Address>My Street 10, 3rd Floor</Address>
+          <Phone>
+              <Home>35234544</Home>        
+              <Mobile>423642345</Mobile>  
+          </Phone>
+          <Age>37</Age>
+          <Gender>Male</Gender>
+    </PersonalInfo>
+    <WorkingExperience>
+          <Workplace>
+              <Company>Ama Guadalupekoa</Company> 
+              <Location>Hondarribia</Location> 
+              <Position>ICT Teacher</Position>
+              <Period>2003-2004</Period>
+          </Workplace>        
+          <Workplace>
+              <Company>Eurohelp S.A.</Company> 
+              <Location>Donostia</Location> 
+              <Position>Consultant</Position>
+              <Period>2004-2005</Period>        
+          </Workplace>
+          <Workplace>
+              <Company>Basque Government - Education </Company> 
+              <Location>Many Places</Location> 
+              <Position>ICT Teacher</Position>
+              <Period>2005-2015</Period>        
+          </Workplace>          
+    </WorkingExperience>
+    <PreviousStudies>
+          <Studies>
+                <Level>Basic Studies</Level>
+                <School>Ikasbide Ikastola</School>
+                <Location>Donostia</Location>
+                <Years>1980-1991</Years>
+            </Studies>
+            <Studies>
+                <Level>Secondary Studies</Level>
+                <School>Barandiaran Lizeoa</School>
+                <Location>Donostia</Location>
+                <Years>1991-1995</Years>
+            </Studies>
+            <Studies>
+                <Level>University Studies</Level>
+                <School>ICT University</School>
+                <Location>Donostia</Location>
+                <Years>1996-2003</Years>
+            </Studies>
+    </PreviousStudies>
+    <HobbiesAndOthers>
+            <LanguageSkills>
+                  <Language lang="English">
+                          <Written>Good level</Written>
+                          <Spoken>Good level</Spoken>
+                          <Degrees>C1</Degrees>
+                  </Language>
+                  <Language lang="Spanish">
+                          <Written>Good level</Written>
+                          <Spoken>Good level</Spoken>
+                          <Degrees>Mother Tongue</Degrees>
+                  </Language>
+                  <Language lang="Euskera">
+                          <Written>Good level</Written>
+                          <Spoken>Good level</Spoken>
+                          <Degrees>Mother Tongue / EGA</Degrees>
+                  </Language>
+                  <Language lang="French">
+                          <Written>Basic Level</Written>
+                          <Spoken>Basic Level</Spoken>
+                  </Language>
+            </LanguageSkills>
+            <Hobbies>
+                        <Hobby>Photography</Hobby>
+                        <Hobby>Computers and Videogames</Hobby>
+                        <Hobby>Music</Hobby>
+            </Hobbies>
+    </HobbiesAndOthers>
+</CV>

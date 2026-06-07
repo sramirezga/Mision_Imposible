@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="albums.xsl"?>
+<collection>
+  <album>
+    <band>Metallica</band>
+    <title year="1985">Master of Puppets</title>
+    <tracks amount="8">
+      <track number="1" length="4:57">Battery</track>
+      <track number="2" length="6:03">Master Of Puppets</track>
+      <track number="3" length="7:34">Orion</track>
+    </tracks>
+    <cover path="images/masterofpuppets.jpg" />
+  </album>
+  <album>
+    <band>Pantera</band>
+    <title year="1993">Vulgar Display Of Power</title>
+    <tracks amount="10">
+      <track number="1" length="4:01">Walk</track>
+      <track number="2" length="3:53">5 Minutes Alone</track>
+      <track number="3" length="5:01">I'm Broken</track>
+    </tracks>
+    <cover path="images/vulgardisplayofpower.jpg" />
+  </album>
+  <album>
+    <band>U2</band>
+    <title year="1991">Achtung Baby</title>
+    <tracks amount="12">
+      <track number="1" length="4:13">Zoo Station</track>
+      <track number="2" length="3:55">The Fly</track>
+      <track number="3" length="4:32">Mysterious Ways</track>
+    </tracks>
+    <cover path="images/achtungbaby.jpg" />
+  </album>
+  <album>
+    <band>AC/DC</band>
+    <title year="1991">Live</title>
+    <tracks amount="20">
+      <track number="1" length="3:55">Hells Bells</track>
+      <track number="2" length="3:23">Highway To Hell</track>
+      <track number="3" length="5:12">Thunderstrike</track>
+    </tracks>
+    <cover path="images/live.jpg" />
+  </album>
+  <album>
+    <band>Black Sabbath</band>
+    <title year="1980">Black Sabbath</title>
+    <tracks amount="8">
+      <track number="1" length="6:07">Black Sabbath</track>
+      <track number="2" length="7:13">War Pigs</track>
+      <track number="3" length="4:11">Faeries Wear Boots</track>
+    </tracks>
+    <cover path="images/blacksabbath.jpg" />
+  </album>
+  <album>
+    <band>Black Label Society</band>
+    <title year="1994">Pride and Glory</title>
+    <tracks amount="12">
+      <track number="1" length="4:49">Lovin' Woman</track>
+      <track number="2" length="4:37">Sweet Jesus</track>
+      <track number="3" length="5:29">Losin' Your Mind</track>
+    </tracks>
+    <cover path="images/prideandglory.jpg" />
+  </album>
+  <album>
+    <band>Machine Head</band>
+    <title year="2007">The Blackening</title>
+    <tracks amount="8">
+      <track number="1" length="3:13">Beautiful Mourning</track>
+      <track number="2" length="5:02">Slanderous</track>
+      <track number="3" length="4:58">Now I Lay Thee Down</track>
+    </tracks>
+    <cover path="images/blackening.jpg" />
+  </album>
+  <album>
+    <band>Sepultura</band>
+    <title year="1996">Roots</title>
+    <tracks amount="14">
+      <track number="1" length="4:22">Roots Bloody Roots</track>
+      <track number="2" length="4:41">Rattamahatta</track>
+      <track number="3" length="2:45">Spit</track>
+    </tracks>
+    <cover path="images/roots.jpg" />
+  </album>
+  <album>
+    <band>Led Zeppelin</band>
+    <title year="1971">IV</title>
+    <tracks amount="8">
+      <track number="1" length="4:27">Black Dog</track>
+      <track number="2" length="2:51">Rock and Roll</track>
+      <track number="3" length="7:32">Stairway To Heaven</track>
+    </tracks>
+    <cover path="images/IV.jpg" />
+  </album>
+</collection>

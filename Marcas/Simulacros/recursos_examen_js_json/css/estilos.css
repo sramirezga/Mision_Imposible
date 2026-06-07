@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #ffffff;
+    text-align: center;
+}
+
+.zona-verde {
+    background: #98b957;
+    width: 90%;
+    margin: 40px auto;
+    padding: 30px;
+}
+
+.caja {
+    background: #f4f4f4;
+    border: 1px solid #999;
+    border-radius: 8px;
+    padding: 25px;
+    margin: 15px;
+}
+
+.fila {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+input,
+button {
+    margin: 8px;
+    padding: 8px;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 20px auto;
+    background: white;
+}
+
+td,
+th {
+    border: 1px solid #333;
+    padding: 8px;
+}
+
+img.icono {
+    width: 45px;
+    height: 45px;
+}
+
+.rojo {
+    color: red;
+}
+
+
+
+
+#tablaInstrumentos img {
+    width: 50px;
+    height: 50px;
+}

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE enterprises [
+<!ELEMENT enterprises (enterprise)+>
+<!ELEMENT enterprise (name , type , sector , billing? , location? , contact*)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT type (#PCDATA)>
+<!ELEMENT sector (#PCDATA)>
+<!ELEMENT billing (#PCDATA)>
+<!ELEMENT location (country , province? , city , address?)>
+<!ELEMENT country (#PCDATA)>
+<!ELEMENT province (#PCDATA)>
+<!ELEMENT city (#PCDATA)>
+<!ELEMENT address (#PCDATA)>
+<!ELEMENT contact (person? , phone* , mobile* , email*)>
+<!ELEMENT person (#PCDATA)>
+<!ELEMENT phone (#PCDATA)>
+<!ELEMENT mobile (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+]>
+<enterprises>
+    <enterprise>
+        <name>Maddi Inc.</name>
+        <type>S.L.</type>
+        <sector>Electronics</sector>
+        <billing>100 millions per fiscal year</billing>
+        <location>
+            <country>Basque Country</country>
+            <province>Gipuzkoa</province>
+            <city>Donostia</city>
+            <address>JM Barandiaran 9</address>
+        </location>
+        <contact>
+            <person>Maddi Azkargorta</person>
+            <phone>943666666</phone>
+            <mobile>643888888</mobile>
+            <email>mazkargorta@azkar.inc</email>
+        </contact>
+    </enterprise>
+       <enterprise>
+        <name>Second Enterprise Corp.</name>
+        <type>S.A.</type>
+        <sector>Entertainment</sector>
+    </enterprise>
+	<enterprise>
+        <name>Zubiri Inc.</name>
+        <type>S.A.</type>
+        <sector>Building</sector>
+        <billing>3 millions per fiscal year</billing>
+        <location>
+            <country>Basque Country</country>
+            <province>Gipuzkoa</province>
+            <city>Astigarraga</city>
+            <address>Alkorta 9</address>
+        </location>
+        <contact>
+            <person>Patxi Ku</person>
+            <phone>943555555</phone>
+            <mobile>643887777</mobile>
+            <email>pku@zubiri.inc</email>
+        </contact>
+    </enterprise>
+</enterprises>
