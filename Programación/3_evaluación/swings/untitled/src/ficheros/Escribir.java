@@ -44,7 +44,53 @@ public class Escribir {
 
     public static void main(String[] args) {
 
-        String nombreArchivo = "prueba";
+
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("files/nuevo.txt"));
+
+            String linea;
+
+            while ((linea = br.readLine()) != null) {
+                System.out.println(linea);
+            }
+
+            //Split(",") separa los ellemntos
+            br.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        //media de un regristro por ejemplo salario
+
+        /*
+        try {
+            PrintWriter pw = new PrintWriter("Files/nuevo.txt");
+
+            Map<String, String[]> mapa = fabricanteProductos();
+
+            for (Map.Entry<String, String[]> entry : mapa.entrySet()) {
+
+                String nombre = entry.getKey();
+
+                pw.println(nombre);
+
+                String[] productos = entry.getValue();
+
+                for (int i = 0; i < productos.length; i++) {
+                    pw.println(productos[i]);
+                }
+
+                pw.println();
+            }
+
+
+            pw.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } */
+
+        /* String nombreArchivo = "prueba";
 
         try {
             PrintWriter pw = new PrintWriter("files/" + nombreArchivo + ".csv");
@@ -71,7 +117,8 @@ public class Escribir {
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        }
+        } */
+
     }
 
 }
