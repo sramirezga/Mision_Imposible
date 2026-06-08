@@ -1,10 +1,8 @@
 import javax.swing.*;
 import javax.swing.plaf.PanelUI;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+import java.awt.event.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Cuestionario extends JFrame implements ActionListener {
@@ -22,9 +20,11 @@ public class Cuestionario extends JFrame implements ActionListener {
 
     //Sur
     private JTextArea area;
-    private JTextField posiblesRespuestas;
+    private JTextField posibleRespuesta;
     private JButton comprobar, eliminar, guardar;
     private JLabel mostrarRest;
+    private int contAciertos = 0;
+    private int contFallos = 0;
 
     //Conexion
     private DbManager conn;
@@ -103,7 +103,7 @@ public class Cuestionario extends JFrame implements ActionListener {
         JPanel aux = new JPanel(new FlowLayout(FlowLayout.LEFT, 50, 0));
         cajaCategorias = new JCheckBox[listaCategorrias.size()];
 
-        for(int i = 0; i < cajaCategorias.length; i++){
+        for (int i = 0; i < cajaCategorias.length; i++) {
 
             cajaCategorias[i] = new JCheckBox(listaCategorrias.get(i));
 
@@ -111,7 +111,6 @@ public class Cuestionario extends JFrame implements ActionListener {
             aux.add(cajaCategorias[i]);
 
         }
-
 
 
         arriba.add(aux, BorderLayout.CENTER);
@@ -150,6 +149,29 @@ public class Cuestionario extends JFrame implements ActionListener {
 
         modeloLista = new DefaultListModel<>();
         lista = new JList<>(modeloLista);
+        lista.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+                if (e.getClickCount() == 2) {
+
+                    Pregunta p = lista.getSelectedValue();
+
+                    String[] posiblesRest = conn.respuestasPorCadaPregunta(p.getId());
+
+
+                    area.setText("");
+                    for (int i = 0; i < posiblesRest.length; i++) {
+
+
+                        area.append(posiblesRest[i] + "\n");
+
+                    }
+
+                }
+
+            }
+        });
 
         izq.add(new JScrollPane(lista), BorderLayout.CENTER);
 
@@ -193,18 +215,42 @@ public class Cuestionario extends JFrame implements ActionListener {
         JPanel arriba = new JPanel(new FlowLayout(FlowLayout.LEFT, 20, 0));
         arriba.setPreferredSize(new Dimension(0, 60));
 
-        JLabel nRest = new JLabel("Número de respuestas: ");
-        posiblesRespuestas = new JTextField(40);
-        posiblesRespuestas.setPreferredSize(new Dimension(0, 30));
+        JLabel nRest = new JLabel("Tu respuesta: ");
+        posibleRespuesta = new JTextField(40);
+        posibleRespuesta.setPreferredSize(new Dimension(0, 30));
 
+        mostrarRest = new JLabel("  /  ");
 
         comprobar = new JButton("Comprobar");
-        mostrarRest = new JLabel("  /  ");
+        comprobar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                String res = posibleRespuesta.getText();
+
+                Pregunta p = lista.getSelectedValue();
+
+                String correcta = p.getRespuestas()[p.getIndice()];
+
+
+                if (res.equals(correcta)) {
+                    conn.guardarAcierto(p.getId());
+                    contAciertos++;
+                } else {
+                    conn.guardarFallos(p.getId());
+                    contFallos++;
+                }
+
+
+                mostrarRest.setText(contAciertos + "/" + contFallos);
+                posibleRespuesta.setText("");
+            }
+        });
 
 
         //ADD
         arriba.add(nRest);
-        arriba.add(posiblesRespuestas);
+        arriba.add(posibleRespuesta);
         arriba.add(comprobar);
         arriba.add(mostrarRest);
 
@@ -215,8 +261,6 @@ public class Cuestionario extends JFrame implements ActionListener {
     public JPanel surAbajo() {
 
         JPanel abajo = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 0));
-
-        mostrarRest = new JLabel();
 
 
         eliminar = new JButton("Eliminar");
@@ -250,7 +294,6 @@ public class Cuestionario extends JFrame implements ActionListener {
         });
 
 
-        abajo.add(mostrarRest);
         abajo.add(eliminar);
         abajo.add(guardar);
 
@@ -268,25 +311,46 @@ public class Cuestionario extends JFrame implements ActionListener {
 
         if (o == jugar) {
 
-            boolean todasSinSelecionar = false;
+            boolean todasSinSelecionar = true;
+
+            List<String> listaCategoriasSeleccionadas = new ArrayList<>();
 
             for (int i = 0; i < cajaCategorias.length; i++) {
-                if (!cajaCategorias[i].isSelected()) {
-                    todasSinSelecionar = true;
-                }else{
+                if (cajaCategorias[i].isSelected()) {
 
+                    listaCategoriasSeleccionadas.add(cajaCategorias[i].getText());
+                    todasSinSelecionar = false;
+                }
+            }
+
+            if (todasSinSelecionar) {
+                JOptionPane.showMessageDialog(null, "No hay ninguna categoria seleccionada", "", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+
+                String resp = JOptionPane.showInputDialog(null, "Cuantas presguntas quieres ", "", JOptionPane.INFORMATION_MESSAGE);
+
+                if (resp != null) {
+
+
+                    int cantidad = Integer.parseInt(resp);
+
+
+                    List<Pregunta> preguntasParaMostrar = conn.preguntasFiltradas(listaCategoriasSeleccionadas, cantidad);
+
+
+                    modeloLista.clear();
+                    for (Pregunta p : preguntasParaMostrar) {
+                        modeloLista.addElement(p);
+                    }
 
 
                 }
             }
 
-            if (todasSinSelecionar) {
-                JOptionPane.showConfirmDialog(null, "No hay ninguna categoria seleccinado",
-                        "ERROR: ", JOptionPane.ERROR);
-            }
 
         }
 
     }
+
 
 }

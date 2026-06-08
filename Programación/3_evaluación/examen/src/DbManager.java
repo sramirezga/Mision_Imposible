@@ -80,22 +80,18 @@ public class DbManager {
         return aux;
     }
 
-    //Pregunta categoria
-   /* public List<Pregunta> preguntaCategoria(String categoria) {
+
+    public List<Pregunta> cargarPreguntaPorCategoria(String categoria) {
 
         List<Pregunta> aux = new ArrayList<>();
 
-        String sql = """
-                select p.idpregunta, p.pregunta, p.aciertos, p.fallos, p.idcategoria,
-                                    c.idcategoria, c.categoria,
-                                     r.idpregunta, r.respuesta, r.correcta
-                                     from preguntas p\s
-                                     inner join categorias c
-                                     on p.idcategoria  = c.idcategoria
-                                     inner join respuestas r
-                                     on p.idpregunta = r.idpregunta
-                                     where c.categoria = ?
-                """;
+        String sql ="""
+        SELECT p.*
+        FROM preguntas p
+        INNER JOIN categorias c ON p.idcategoria = c.idcategoria
+        WHERE c.categoria = ?
+        """;
+
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, categoria);
@@ -103,20 +99,20 @@ public class DbManager {
 
             while (rs.next()) {
 
-                String[] respuestas = ;
+                int idPregunta = rs.getInt("idpregunta");
+                String[] resp = respuestasPorCadaPregunta(idPregunta);
+                int indiceCorrecto = indiceRespuestaCorrecta(idPregunta);
 
 
                 Pregunta pregunta = new Pregunta(
                         rs.getInt("idPregunta"),
-                        rs.getString("preguntas"),
-                        respuestas,
-                        rs.
-
-                        );
-
+                        rs.getString("pregunta"),
+                        resp,
+                        indiceCorrecto
+                );
 
 
-                aux.add(c);
+                aux.add(pregunta);
             }
 
             rs.close();
@@ -127,12 +123,144 @@ public class DbManager {
             e.printStackTrace();
         }
         return aux;
-    } */
+    }
+
+    public String[] respuestasPorCadaPregunta(int idpregunta) {
+
+        String[] aux = new String[4];
+        int cont = 0;
+
+        String sql = """
+                SELECT respuesta
+                FROM respuestas
+                WHERE idpregunta = ?""";
+
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, idpregunta);
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                aux[cont] = rs.getString("respuesta");
+                cont++;
+
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+        return aux;
+    }
+
+    public int indiceRespuestaCorrecta(int idpregunta) {
+
+        int indiceCorrecto = -1;
+        int cont = 0;
+
+
+        String sql = """
+                SELECT correcta
+                FROM respuestas
+                WHERE idpregunta = ?""";
+
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, idpregunta);
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                boolean correcta = rs.getBoolean("correcta");
+
+
+                if (correcta) {
+                    indiceCorrecto = cont;
+                }
+
+                cont++;
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+        return indiceCorrecto;
+    }
+
+    public List<Pregunta> preguntasFiltradas(List<String> categorias, int cantidad){
+
+
+        List<Pregunta> todasLasPreguntas = new ArrayList<>();
+        List<Pregunta> preguntasFiltra = new ArrayList<>();
+
+
+        for(String s : categorias){
+
+           List<Pregunta> cargarlas = cargarPreguntaPorCategoria(s);
+
+           // todasLasPreguntas.addAll(cargarlas);
+
+           for (Pregunta p : cargarlas){
+               todasLasPreguntas.add(p);
+           }
+        }
+
+        while (preguntasFiltra.size() < cantidad && todasLasPreguntas.size() > 0){
+
+            int posAleatoria = (int) (Math.random() * todasLasPreguntas.size());
+
+            preguntasFiltra.add(todasLasPreguntas.get(posAleatoria));
+
+            todasLasPreguntas.remove(posAleatoria);
+
+        }
+
+        return preguntasFiltra;
+
+    }
+
+
+
 
 
     //Guardar acierto
-    public void guardarAcierto() {
+    public void guardarAcierto(int idpregunta) {
 
+        String sql = "Update preguntas " +
+                "set aciertos = aciertos + 1 " +
+                "where idpregunta = ?";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1,idpregunta);
+
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void guardarFallos(int idpregunta) {
+
+        String sql = "Update preguntas " +
+                "set fallos = fallos + 1 " +
+                "where idpregunta = ?";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1,idpregunta);
+
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -140,11 +268,7 @@ public class DbManager {
     public Map<String, Integer> mapDeResultadosCorrectos() {
 
         Map<String, Integer> map = new HashMap<>();
-        String sql = """
-                select idcategoria, pregunta
-                from preguntas\s
-                where aciertos = 1
-                """;
+        String sql = "select idcategoria, pregunta from preguntas";
 
         try {
             PreparedStatement ps = conn.prepareStatement(sql);

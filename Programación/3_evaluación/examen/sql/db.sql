@@ -2,86 +2,100 @@ DROP DATABASE IF EXISTS examen;
 CREATE DATABASE examen;
 USE examen;
 
-CREATE TABLE Categorias (
-    idCategoria VARCHAR(5) PRIMARY KEY,
-    categoria VARCHAR(100) NOT NULL
-);
+DROP TABLE IF EXISTS respuestas;
+DROP TABLE IF EXISTS preguntas;
+DROP TABLE IF EXISTS categorias;
 
-CREATE TABLE Respuestas (
-    idRespuesta VARCHAR(5) PRIMARY KEY,
-    respuesta VARCHAR(255) NOT NULL,
-    correcta BIT NOT NULL
-);
+CREATE TABLE categorias (
+    idcategoria VARCHAR(3) NOT NULL,
+    categoria VARCHAR(200) NOT NULL,
+    PRIMARY KEY (idcategoria)
+) ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
 
-CREATE TABLE Preguntas (
-    idPregunta INT NOT NULL,
-    pregunta VARCHAR(255) NOT NULL,
-    aciertos INT DEFAULT 0,
-    fallos INT DEFAULT 0,
-    idCategoria VARCHAR(5) NOT NULL,
-    idRespuesta VARCHAR(5) NOT NULL,
+CREATE TABLE preguntas (
+    idpregunta INT NOT NULL AUTO_INCREMENT,
+    pregunta VARCHAR(200) NOT NULL,
+    aciertos INT NOT NULL,
+    fallos INT NOT NULL,
+    idcategoria VARCHAR(3) NOT NULL,
+    PRIMARY KEY (idpregunta),
+    FOREIGN KEY (idcategoria) REFERENCES categorias(idcategoria)
+) ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
 
-    PRIMARY KEY (idPregunta, idRespuesta),
+CREATE TABLE respuestas (
+    idpregunta INT NOT NULL,
+    respuesta VARCHAR(100) NOT NULL,
+    correcta TINYINT(1) NOT NULL,
+    PRIMARY KEY (idpregunta, respuesta),
+    FOREIGN KEY (idpregunta) REFERENCES preguntas(idpregunta)
+) ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
 
-    FOREIGN KEY (idCategoria) REFERENCES Categorias(idCategoria),
-    FOREIGN KEY (idRespuesta) REFERENCES Respuestas(idRespuesta)
-);
-
-INSERT INTO Categorias VALUES
+INSERT INTO categorias VALUES
 ('CIN', 'Cine'),
 ('ING', 'Ingles'),
 ('GEO', 'Geografia'),
 ('CAL', 'Calculo'),
 ('LIT', 'Literatura');
 
-INSERT INTO Respuestas VALUES
-('R01', 'James Cameron', 1),
-('R02', 'Steven Spielberg', 0),
-('R03', 'Christopher Nolan', 0),
-('R04', 'Martin Scorsese', 0),
+INSERT INTO preguntas (pregunta, aciertos, fallos, idcategoria) VALUES
+('Quien dirigio Titanic?', 0, 0, 'CIN'),
+('Que pelicula tiene como protagonista a un ogro verde?', 0, 0, 'CIN'),
+('Como se dice perro en ingles?', 0, 0, 'ING'),
+('Como se dice casa en ingles?', 0, 0, 'ING'),
+('Cual es la capital de Francia?', 0, 0, 'GEO'),
+('En que continente esta Brasil?', 0, 0, 'GEO'),
+('Cuanto es 2 + 2?', 0, 0, 'CAL'),
+('Cuanto es 5 * 3?', 0, 0, 'CAL'),
+('Quien escribio Don Quijote?', 0, 0, 'LIT'),
+('Quien escribio La casa de Bernarda Alba?', 0, 0, 'LIT');
 
-('R05', 'Dog', 1),
-('R06', 'Cat', 0),
-('R07', 'House', 0),
-('R08', 'Bird', 0),
+INSERT INTO respuestas VALUES
+(1, 'James Cameron', 1),
+(1, 'Steven Spielberg', 0),
+(1, 'Christopher Nolan', 0),
+(1, 'Martin Scorsese', 0),
 
-('R09', 'Paris', 1),
-('R10', 'Madrid', 0),
-('R11', 'Roma', 0),
-('R12', 'Lisboa', 0),
+(2, 'Shrek', 1),
+(2, 'Toy Story', 0),
+(2, 'Frozen', 0),
+(2, 'Avatar', 0),
 
-('R13', '4', 1),
-('R14', '5', 0),
-('R15', '6', 0),
-('R16', '8', 0),
+(3, 'Dog', 1),
+(3, 'Cat', 0),
+(3, 'House', 0),
+(3, 'Bird', 0),
 
-('R17', 'Miguel de Cervantes', 1),
-('R18', 'Federico Garcia Lorca', 0),
-('R19', 'Gabriel Garcia Marquez', 0),
-('R20', 'Pablo Neruda', 0);
+(4, 'House', 1),
+(4, 'Car', 0),
+(4, 'Table', 0),
+(4, 'Dog', 0),
 
-INSERT INTO Preguntas VALUES
-(1, 'Quien dirigio Titanic?', 0, 0, 'CIN', 'R01'),
-(1, 'Quien dirigio Titanic?', 0, 0, 'CIN', 'R02'),
-(1, 'Quien dirigio Titanic?', 0, 0, 'CIN', 'R03'),
-(1, 'Quien dirigio Titanic?', 0, 0, 'CIN', 'R04'),
+(5, 'Paris', 1),
+(5, 'Madrid', 0),
+(5, 'Roma', 0),
+(5, 'Lisboa', 0),
 
-(2, 'Como se dice perro en ingles?', 0, 0, 'ING', 'R05'),
-(2, 'Como se dice perro en ingles?', 0, 0, 'ING', 'R06'),
-(2, 'Como se dice perro en ingles?', 0, 0, 'ING', 'R07'),
-(2, 'Como se dice perro en ingles?', 0, 0, 'ING', 'R08'),
+(6, 'America', 1),
+(6, 'Europa', 0),
+(6, 'Asia', 0),
+(6, 'Africa', 0),
 
-(3, 'Cual es la capital de Francia?', 0, 0, 'GEO', 'R09'),
-(3, 'Cual es la capital de Francia?', 0, 0, 'GEO', 'R10'),
-(3, 'Cual es la capital de Francia?', 0, 0, 'GEO', 'R11'),
-(3, 'Cual es la capital de Francia?', 0, 0, 'GEO', 'R12'),
+(7, '4', 1),
+(7, '5', 0),
+(7, '6', 0),
+(7, '8', 0),
 
-(4, 'Cuanto es 2 + 2?', 0, 0, 'CAL', 'R13'),
-(4, 'Cuanto es 2 + 2?', 0, 0, 'CAL', 'R14'),
-(4, 'Cuanto es 2 + 2?', 0, 0, 'CAL', 'R15'),
-(4, 'Cuanto es 2 + 2?', 0, 0, 'CAL', 'R16'),
+(8, '15', 1),
+(8, '10', 0),
+(8, '20', 0),
+(8, '8', 0),
 
-(5, 'Quien escribio Don Quijote?', 0, 0, 'LIT', 'R17'),
-(5, 'Quien escribio Don Quijote?', 0, 0, 'LIT', 'R18'),
-(5, 'Quien escribio Don Quijote?', 0, 0, 'LIT', 'R19'),
-(5, 'Quien escribio Don Quijote?', 0, 0, 'LIT', 'R20');
+(9, 'Miguel de Cervantes', 1),
+(9, 'Federico Garcia Lorca', 0),
+(9, 'Gabriel Garcia Marquez', 0),
+(9, 'Pablo Neruda', 0),
+
+(10, 'Federico Garcia Lorca', 1),
+(10, 'Miguel de Cervantes', 0),
+(10, 'Lope de Vega', 0),
+(10, 'Antonio Machado', 0);

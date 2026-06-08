@@ -24,6 +24,19 @@ public class Pregunta {
         return this.enunciado;
     }
 
+
+    public int getId() {
+        return id;
+    }
+
+    public String[] getRespuestas() {
+        return respuestas;
+    }
+
+    public int getIndice() {
+        return indice;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
