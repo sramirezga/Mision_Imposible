@@ -10,7 +10,6 @@ public class Pregunta {
 
 
     //Constructor
-
     public Pregunta(int id, String enunciado, String[] respuestas, int indice) {
         this.id = id;
         this.enunciado = enunciado;
@@ -25,8 +24,13 @@ public class Pregunta {
     }
 
 
+    //Guetters
     public int getId() {
         return id;
+    }
+
+    public String getEnunciado() {
+        return enunciado;
     }
 
     public String[] getRespuestas() {
@@ -48,7 +52,4 @@ public class Pregunta {
     public int hashCode() {
         return Objects.hash(id, enunciado, Arrays.hashCode(respuestas), indice);
     }
-
-
-    //Métodos
 }

@@ -48,7 +48,6 @@ public class DbManager {
         }
     }
 
-
     //Todas las categorias
     public List<String> todasLasCategorias() {
 
@@ -76,7 +75,6 @@ public class DbManager {
         }
         return aux;
     }
-
 
     public List<Pregunta> cargarPreguntaPorCategoria(String categoria) {
 
@@ -143,7 +141,6 @@ public class DbManager {
                 cont++;
 
             }
-
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -223,10 +220,6 @@ public class DbManager {
 
     }
 
-
-
-
-
     //Guardar acierto
     public void guardarAcierto(int idpregunta) {
 
@@ -243,7 +236,7 @@ public class DbManager {
             e.printStackTrace();
         }
     }
-
+    //Guardar fallo
     public void guardarFallos(int idpregunta) {
 
         String sql = "Update preguntas " +
@@ -260,12 +253,13 @@ public class DbManager {
         }
     }
 
-
     //MAPA
     public Map<String, Integer> mapDeResultadosCorrectos() {
 
         Map<String, Integer> map = new HashMap<>();
-        String sql = "select idcategoria, pregunta from preguntas";
+        String sql = "select p.aciertos, c.categoria " +
+                "from preguntas p inner join categorias c " +
+                "on p.idcategoria = c.idcategoria";
 
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -273,16 +267,15 @@ public class DbManager {
 
             while (rs.next()) {
 
-                String idCategoria = rs.getString("idcategoria");
+                String categoria = rs.getString("categoria");
                 int preguntaCorrectasActuales = rs.getInt("aciertos");
 
-                if (!map.containsKey(idCategoria)) {
-                    map.put(idCategoria, preguntaCorrectasActuales);
+                if (!map.containsKey(categoria)) {
+                    map.put(categoria, preguntaCorrectasActuales);
                 } else {
-                    int preguntasCorrectas = map.get(idCategoria);
+                    int preguntasCorrectas = map.get(categoria);
                     int total = preguntaCorrectasActuales + preguntasCorrectas;
-
-                    map.put(idCategoria, total);
+                    map.put(categoria, total);
                 }
 
 
@@ -294,7 +287,6 @@ public class DbManager {
 
         return map;
     }
-
 
     public List<String> categoriasEliminables() {
 
@@ -313,18 +305,17 @@ public class DbManager {
         return aux;
     }
 
-    public void eliminarCategoriasPorId(String idCategoria) {
-        String sql = "DELETE FROM categorias WHERE idcategoria = ?";
+    public void eliminarCategoriasPorNombre(String categoria) {
+        String sql = "DELETE FROM categorias WHERE categoria = ?";
 
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, idCategoria);
+            ps.setString(1, categoria);
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-
 
     //Guetter
     public Connection getConn() {

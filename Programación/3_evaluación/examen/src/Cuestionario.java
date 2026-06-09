@@ -2,6 +2,9 @@ import javax.swing.*;
 import javax.swing.plaf.PanelUI;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,11 +15,9 @@ public class Cuestionario extends JFrame implements ActionListener {
     private JCheckBox[] cajaCategorias;
     private JButton jugar;
 
-
     //Centro
     private DefaultListModel<Pregunta> modeloLista;
     private JList<Pregunta> lista;
-
 
     //Sur
     private JTextArea area;
@@ -130,7 +131,6 @@ public class Cuestionario extends JFrame implements ActionListener {
         return abajo;
     }
 
-
     //------------CENTRO----------------------
     public JPanel crearCentro() {
         JPanel centro = new JPanel(new GridLayout(1, 2));
@@ -169,7 +169,6 @@ public class Cuestionario extends JFrame implements ActionListener {
         return izq;
     }
 
-
     public JPanel crearDer() {
         JPanel der = new JPanel(new BorderLayout(20, 20));
         der.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
@@ -186,7 +185,6 @@ public class Cuestionario extends JFrame implements ActionListener {
 
         return der;
     }
-
 
     //------------SUR----------------------
     public JPanel crearSur() {
@@ -210,7 +208,7 @@ public class Cuestionario extends JFrame implements ActionListener {
         posibleRespuesta = new JTextField(40);
         posibleRespuesta.setPreferredSize(new Dimension(0, 30));
 
-        mostrarRest = new JLabel("  /  ");
+        mostrarRest = new JLabel("Aciertos  /  Fallos ");
 
         comprobar = new JButton("Comprobar");
         comprobar.addActionListener(new ActionListener() {
@@ -221,20 +219,31 @@ public class Cuestionario extends JFrame implements ActionListener {
 
                 Pregunta p = lista.getSelectedValue();
 
-                String correcta = p.getRespuestas()[p.getIndice()];
 
 
-                if (res.equals(correcta)) {
-                    conn.guardarAcierto(p.getId());
-                    contAciertos++;
-                } else {
-                    conn.guardarFallos(p.getId());
-                    contFallos++;
+
+                if (p != null){
+
+
+                    if (res !=null && !res.trim().isEmpty()){
+
+                        String correcta = p.getRespuestas()[p.getIndice()];
+                        if (res.equals(correcta)) {
+                            conn.guardarAcierto(p.getId());
+                            contAciertos++;
+                        } else {
+                            conn.guardarFallos(p.getId());
+                            contFallos++;
+                        }
+
+                        mostrarRest.setText("Aciertos " + contAciertos + "  /  Fallos " + contFallos);
+                        posibleRespuesta.setText("");
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Debes escribir una respuesta vallida");
+                    }
+                }else{
+                    JOptionPane.showMessageDialog(null, "Debe hacer doble click sobre una pregunta");
                 }
-
-
-                mostrarRest.setText(contAciertos + "/" + contFallos);
-                posibleRespuesta.setText("");
             }
         });
 
@@ -262,14 +271,14 @@ public class Cuestionario extends JFrame implements ActionListener {
                 List<String> categoriasEliminables = conn.categoriasEliminables();
 
 
-                for (String n : categoriasEliminables) {
-
-                    int res = JOptionPane.showConfirmDialog(null, "Deseas elimiar la categoria con el id" + n,
+                for (String nombre : categoriasEliminables) {
+                    System.out.println(nombre);
+                    int res = JOptionPane.showConfirmDialog(null, "Deseas elimiar la categoria " + nombre,
                             "Eliminar categoria", JOptionPane.YES_NO_OPTION);
 
 
                     if (res == JOptionPane.YES_OPTION) {
-                        conn.eliminarCategoriasPorId(n);
+                        conn.eliminarCategoriasPorNombre(nombre);
                     }
 
                 }
@@ -281,6 +290,41 @@ public class Cuestionario extends JFrame implements ActionListener {
             @Override
             public void actionPerformed(ActionEvent e) {
 
+                try {
+
+                    PrintWriter pw = new PrintWriter(new File("files/guardar"));
+
+                    String resp = JOptionPane.showInputDialog(null,"Ingresa nombre de la categoria", "", JOptionPane.QUESTION_MESSAGE);
+
+
+                    if (resp != null && !resp.trim().isEmpty()) {
+
+                        List<Pregunta> lista = conn.cargarPreguntaPorCategoria(resp);
+
+                        for (Pregunta p: lista){
+
+                            pw.println(p.getEnunciado());
+
+
+                            String[] respuestas = p.getRespuestas();
+
+                            for (int i = 0; i < respuestas.length; i++){
+                                pw.println(respuestas[i]);
+                            }
+
+                            pw.println();
+
+
+
+                        }
+
+
+                    }
+
+                    pw.close();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
             }
         });
 
@@ -291,10 +335,6 @@ public class Cuestionario extends JFrame implements ActionListener {
         return abajo;
     }
 
-    //Main
-    public static void main(String[] args) {
-        Cuestionario c = new Cuestionario();
-    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -308,7 +348,6 @@ public class Cuestionario extends JFrame implements ActionListener {
 
             for (int i = 0; i < cajaCategorias.length; i++) {
                 if (cajaCategorias[i].isSelected()) {
-
                     listaCategoriasSeleccionadas.add(cajaCategorias[i].getText());
                     todasSinSelecionar = false;
                 }
@@ -343,5 +382,10 @@ public class Cuestionario extends JFrame implements ActionListener {
 
     }
 
+
+    //Main
+    public static void main(String[] args) {
+        Cuestionario c = new Cuestionario();
+    }
 
 }
