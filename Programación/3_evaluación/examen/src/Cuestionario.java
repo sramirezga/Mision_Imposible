@@ -154,22 +154,13 @@ public class Cuestionario extends JFrame implements ActionListener {
             public void mouseClicked(MouseEvent e) {
 
                 if (e.getClickCount() == 2) {
-
                     Pregunta p = lista.getSelectedValue();
-
-                    String[] posiblesRest = conn.respuestasPorCadaPregunta(p.getId());
-
-
+                    String[] posiblesRest = p.getRespuestas();
                     area.setText("");
                     for (int i = 0; i < posiblesRest.length; i++) {
-
-
                         area.append(posiblesRest[i] + "\n");
-
                     }
-
                 }
-
             }
         });
 
