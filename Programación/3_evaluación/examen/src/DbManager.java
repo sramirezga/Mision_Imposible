@@ -277,8 +277,6 @@ public class DbManager {
                     int total = preguntaCorrectasActuales + preguntasCorrectas;
                     map.put(categoria, total);
                 }
-
-
             }
 
         } catch (SQLException e) {
@@ -294,13 +292,9 @@ public class DbManager {
         List<String> aux = new ArrayList<>();
 
         for (Map.Entry<String, Integer> entry : map.entrySet()) {
-
             if (entry.getValue() == 0) {
-
                 aux.add(entry.getKey());
-
             }
-
         }
         return aux;
     }
