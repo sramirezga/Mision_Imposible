@@ -76,16 +76,87 @@ public class DbManager {
         return aux;
     }
 
+    public List<Pregunta> cargarPreguntaPorCategoria2(String categoria) {
+
+        List<Pregunta> aux = new ArrayList<>();
+
+        String sql = """
+                select p.idpregunta, p.pregunta
+                from preguntas p inner join categorias c
+                on p.idcategoria = c.idcategoria
+                where c.categoria = ?""";
+
+
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, categoria);
+            ResultSet rs = ps.executeQuery();
+
+
+            while (rs.next()) {
+
+                int idPregunta = rs.getInt("idpregunta");
+
+                String sql2 = """
+                        select respuesta, correcta
+                        from preguntas p inner join respuestas r
+                        on p.idpregunta = r.idpregunta
+                        where p.idpregunta = ?""";
+
+                PreparedStatement ps2 = conn.prepareStatement(sql2);
+                ps2.setInt(1, idPregunta);
+                ResultSet rs2 = ps2.executeQuery();
+
+                String[] arrayRespuestas = new String[4];
+
+                int indiceCorrecto = 0;
+
+                while(rs2.next()){
+                    int cont = 0;
+                    String respuesta = rs2.getString("respuesta");
+
+                    boolean esCorrecta = rs2.getBoolean("correcta");
+
+                    if (esCorrecta){
+                        indiceCorrecto = cont;
+                    }
+
+                    arrayRespuestas[cont] = respuesta;
+
+                    cont ++;
+                }
+
+                Pregunta p = new Pregunta(
+                        rs.getInt("idpregunta"),
+                        rs.getString("pregunta"),
+                        arrayRespuestas,
+                        indiceCorrecto
+                );
+
+                aux.add(p);
+            }
+
+            rs.close();
+            ps.close();
+
+        } catch (SQLException e) {
+            System.err.println("ERROR: No se ha podido realizar la consulta");
+            e.printStackTrace();
+        }
+
+        return aux;
+    }
+
     public List<Pregunta> cargarPreguntaPorCategoria(String categoria) {
 
         List<Pregunta> aux = new ArrayList<>();
 
-        String sql ="""
-        SELECT p.*
-        FROM preguntas p
-        INNER JOIN categorias c ON p.idcategoria = c.idcategoria
-        WHERE c.categoria = ?
-        """;
+        String sql = """
+                SELECT p.*
+                FROM preguntas p
+                INNER JOIN categorias c ON p.idcategoria = c.idcategoria
+                WHERE c.categoria = ?
+                """;
 
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -188,25 +259,25 @@ public class DbManager {
         return indiceCorrecto;
     }
 
-    public List<Pregunta> preguntasFiltradas(List<String> categorias, int cantidad){
+    public List<Pregunta> preguntasFiltradas(List<String> categorias, int cantidad) {
 
 
         List<Pregunta> todasLasPreguntas = new ArrayList<>();
         List<Pregunta> preguntasFiltra = new ArrayList<>();
 
 
-        for(String s : categorias){
+        for (String s : categorias) {
 
-           List<Pregunta> cargarlas = cargarPreguntaPorCategoria(s);
+            List<Pregunta> cargarlas = cargarPreguntaPorCategoria2(s);
 
-           // todasLasPreguntas.addAll(cargarlas);
+            // todasLasPreguntas.addAll(cargarlas);
 
-           for (Pregunta p : cargarlas){
-               todasLasPreguntas.add(p);
-           }
+            for (Pregunta p : cargarlas) {
+                todasLasPreguntas.add(p);
+            }
         }
 
-        while (preguntasFiltra.size() < cantidad && todasLasPreguntas.size() > 0){
+        while (preguntasFiltra.size() < cantidad && todasLasPreguntas.size() > 0) {
 
             int posAleatoria = (int) (Math.random() * todasLasPreguntas.size());
 
@@ -228,7 +299,7 @@ public class DbManager {
                 "where idpregunta = ?";
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setInt(1,idpregunta);
+            ps.setInt(1, idpregunta);
 
             ps.executeUpdate();
 
@@ -236,6 +307,7 @@ public class DbManager {
             e.printStackTrace();
         }
     }
+
     //Guardar fallo
     public void guardarFallos(int idpregunta) {
 
@@ -244,7 +316,7 @@ public class DbManager {
                 "where idpregunta = ?";
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setInt(1,idpregunta);
+            ps.setInt(1, idpregunta);
 
             ps.executeUpdate();
 
