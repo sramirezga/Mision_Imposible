@@ -80,6 +80,8 @@ public class DbManager {
 
         List<Pregunta> aux = new ArrayList<>();
 
+
+
         String sql = """
                 select p.idpregunta, p.pregunta
                 from preguntas p inner join categorias c
@@ -109,11 +111,14 @@ public class DbManager {
 
                 String[] arrayRespuestas = new String[4];
 
-                int indiceCorrecto = 0;
+                int indiceCorrecto = -1;
+                int cont = 0;
 
-                while(rs2.next()){
-                    int cont = 0;
+                while (rs2.next()) {
+
                     String respuesta = rs2.getString("respuesta");
+
+                    arrayRespuestas[cont] = respuesta;
 
                     boolean esCorrecta = rs2.getBoolean("correcta");
 
@@ -121,9 +126,7 @@ public class DbManager {
                         indiceCorrecto = cont;
                     }
 
-                    arrayRespuestas[cont] = respuesta;
-
-                    cont ++;
+                    cont++;
                 }
 
                 Pregunta p = new Pregunta(
@@ -392,6 +395,7 @@ public class DbManager {
    /* public static void main(String[] args) {
         DbManager db = new DbManager();
     } */
+
 
 }
 
